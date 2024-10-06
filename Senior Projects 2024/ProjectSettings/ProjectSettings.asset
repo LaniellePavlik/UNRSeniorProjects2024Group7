@@ -842,13 +842,13 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 43fbc9ed-b3d5-4245-b4a9-85c14dbe849a
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Senior Projects 2024
-  organizationId: liamfrancisco
+  organizationId: senior-projects-2024-group-7
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
