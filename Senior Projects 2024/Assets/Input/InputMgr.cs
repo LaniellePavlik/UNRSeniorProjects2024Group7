@@ -11,6 +11,8 @@ public class InputMgr : MonoBehaviour
 
     private GameControls input;
     private InputAction move;
+    private InputAction dash;
+    private InputAction cursorPos;
     public void Awake()
     {
         inst = this;
@@ -21,11 +23,20 @@ public class InputMgr : MonoBehaviour
     {
         move = input.Movement.Move;
         move.Enable();
+
+        cursorPos = input.Attack.CursorPos;
+        cursorPos.Enable();
+
+        dash = input.Movement.Dash;
+        dash.Enable();
+        dash.performed += StartDash;
     }
 
     private void OnDisable()
     {
         move.Disable();
+        cursorPos.Disable();
+        dash.Disable();
     }
 
     // Start is called before the first frame update
@@ -38,5 +49,11 @@ public class InputMgr : MonoBehaviour
     void Update()
     {
         player.MovePlayer(move.ReadValue<Vector2>());
+        player.ChangeDirection(cursorPos.ReadValue<Vector2>());
+    }
+
+    private void StartDash(InputAction.CallbackContext context)
+    {
+        player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
     }
 }
