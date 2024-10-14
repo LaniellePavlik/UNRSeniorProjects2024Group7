@@ -56,4 +56,13 @@ public class InputMgr : MonoBehaviour
     {
         player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
     }
+
+
+     public void SubmitPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            GameEventsManager.Instance.inputEvents.SubmitPressed();
+        }
+    }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123bbc6ad01258b429640277c9b85a97, type: 3}
+  m_Name: TalkToPatronQuest
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: TalkToPatronQuest
+  displayName: Speak to the Ghost
+  questPrerecs: []
+  questStepPrefabs:
+  - {fileID: 2343748559182472329, guid: 3bb5cc669cb30e5458fe86ecca6fe04f, type: 3}
+  expGain: 0
