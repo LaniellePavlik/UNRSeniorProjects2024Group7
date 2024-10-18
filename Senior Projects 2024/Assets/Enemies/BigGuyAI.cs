@@ -7,39 +7,34 @@ using UnityEngine.AI;
 public class BigGuyAI : EnemyAI
 {
     public Transform player;
-    private NavMeshAgent agent;
+    public float moveTimer = 0;
+    private float moveTime;
+    private float stopTime;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        moveTime = Random.Range(9, 12);
+        stopTime = Random.Range(1, 3);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-    }
-
-    private float moveTimer = 0;
-    private bool moving;
-    public override void Move()
-    {
-        agent.destination = player.position;
+        SetMove(player.position);
         moveTimer += Time.deltaTime;
-        if (moveTimer > 5 && moving) 
+        if (moveTimer > moveTime && !agent.isStopped)
         {
             agent.isStopped = true;
+            moveTime = Random.Range(9, 12);
             moveTimer = 0;
-            moving = false;
         }
-        if (moveTimer > 2 && !moving) 
+        if (moveTimer > stopTime && agent.isStopped)
         {
             agent.isStopped = false;
+            stopTime = Random.Range(1, 3);
             moveTimer = 0;
-            moving = true;
         }
-
-        Debug.Log(Random.insideUnitCircle);
     }
 }
