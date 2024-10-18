@@ -7,34 +7,28 @@ using UnityEngine.AI;
 public class BigGuyAI : EnemyAI
 {
     public Transform player;
-    public float moveTimer = 0;
-    private float moveTime;
-    private float stopTime;
+    public float BGMaxStopTime;
+    public float BGMinStopTime;
+    public float BGMaxMoveTime;
+    public float BGMinMoveTime;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        moveTime = Random.Range(9, 12);
-        stopTime = Random.Range(1, 3);
+        maxStopTime = BGMaxStopTime;
+        minStopTime = BGMinStopTime;
+        maxMoveTime = BGMaxMoveTime;
+        minMoveTime = BGMinMoveTime;
+
+        moveTime = Random.Range(minMoveTime, maxMoveTime);
+        stopTime = Random.Range(minStopTime, maxStopTime);
     }
 
     // Update is called once per frame
     void Update()
     {
         SetMove(player.position);
-        moveTimer += Time.deltaTime;
-        if (moveTimer > moveTime && !agent.isStopped)
-        {
-            agent.isStopped = true;
-            moveTime = Random.Range(9, 12);
-            moveTimer = 0;
-        }
-        if (moveTimer > stopTime && agent.isStopped)
-        {
-            agent.isStopped = false;
-            stopTime = Random.Range(1, 3);
-            moveTimer = 0;
-        }
+        StopInterval();
     }
 }

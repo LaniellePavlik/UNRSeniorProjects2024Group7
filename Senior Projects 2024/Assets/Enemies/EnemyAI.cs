@@ -32,8 +32,8 @@ public class EnemyAI : MonoBehaviour
 
     protected bool dashing;
     
-    private Vector3 dashStartPosiiton;
-    private Vector3 dashEndPosiiton;
+    protected Vector3 dashStartPosiiton;
+    protected Vector3 dashEndPosiiton;
     private float dashTimer = 0;
 
     protected float dashSpeed;
@@ -71,5 +71,30 @@ public class EnemyAI : MonoBehaviour
         Vector2 output2D = c + v.normalized * radius;
 
         return new Vector3(output2D.x, 0 ,output2D.y);
+    }
+
+    protected float moveTime;
+    protected float stopTime;
+    private float moveTimer = 0;
+    private float stopTimer = 0;
+    protected float maxStopTime;
+    protected float minStopTime;
+    protected float maxMoveTime;
+    protected float minMoveTime;
+    protected virtual void StopInterval()
+    {
+        moveTimer += Time.deltaTime;
+        if (moveTimer > moveTime && !agent.isStopped)
+        {
+            agent.isStopped = true;
+            moveTime = Random.Range(minMoveTime, maxMoveTime);
+            moveTimer = 0;
+        }
+        if (moveTimer > stopTime && agent.isStopped)
+        {
+            agent.isStopped = false;
+            stopTime = Random.Range(minStopTime, maxStopTime);
+            moveTimer = 0;
+        }
     }
 }

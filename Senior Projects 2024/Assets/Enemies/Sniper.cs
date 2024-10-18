@@ -25,19 +25,6 @@ public class Sniper : EnemyAI
         {
             movePosition = GetClosestPointInRadius(player.transform.position, (maxRange+minRange)/2);
         }
-        Debug.Log(dist);
         SetMove(movePosition);
     }
-
-    /*
-    void GetNewMovePos()
-    {
-        float dist = Vector3.Distance(player.position, movePosition);
-        while (dist < minRange || dist > maxRange)
-        {
-            movePosition = player.position + GetRandomPointOnRadius(10);
-            dist = Vector3.Distance(player.position, movePosition);
-        }
-    }
-    */
 }
