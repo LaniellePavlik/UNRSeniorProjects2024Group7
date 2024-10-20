@@ -12,6 +12,8 @@ public class BigGuyAI : EnemyAI
     public float BGMaxMoveTime;
     public float BGMinMoveTime;
 
+
+    public float attackCooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,14 @@ public class BigGuyAI : EnemyAI
     {
         SetMove(player.position);
         StopInterval();
+
+        attackCooldown += Time.deltaTime;
+
+        if (Vector3.Distance(transform.position, player.position) < 2 && attackCooldown > 5)
+        {
+            Debug.Log("started");
+            entity.weapons[0].StartAttack();
+            attackCooldown = 0;
+        }
     }
 }

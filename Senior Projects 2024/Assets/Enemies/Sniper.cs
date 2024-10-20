@@ -17,6 +17,7 @@ public class Sniper : EnemyAI
 
 
     Vector3 movePosition;
+    float attackCooldown;
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +26,15 @@ public class Sniper : EnemyAI
         {
             movePosition = GetClosestPointInRadius(player.transform.position, (maxRange+minRange)/2);
         }
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
         SetMove(movePosition);
+
+        attackCooldown += Time.deltaTime;
+
+        if (attackCooldown > 2)
+        {
+            entity.weapons[0].StartAttack();
+            attackCooldown = 0;
+        }
     }
 }

@@ -6,7 +6,8 @@ using UnityEngine.UIElements.Experimental;
 
 public class EnemyAI : MonoBehaviour
 {
-    protected NavMeshAgent agent;
+    public NavMeshAgent agent;
+    public Entity entity;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,6 @@ public class EnemyAI : MonoBehaviour
     {
 
     }
-
     
     protected virtual void SetMove(Vector3 position)
     {
@@ -76,7 +76,6 @@ public class EnemyAI : MonoBehaviour
     protected float moveTime;
     protected float stopTime;
     private float moveTimer = 0;
-    private float stopTimer = 0;
     protected float maxStopTime;
     protected float minStopTime;
     protected float maxMoveTime;

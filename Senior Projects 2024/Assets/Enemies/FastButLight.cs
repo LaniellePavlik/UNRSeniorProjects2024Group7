@@ -49,7 +49,6 @@ public class FastButLight : EnemyAI
                 dashCoolDownTimer = 0;
             }
         }
-        
     }
 
     void StartTripleDash()
