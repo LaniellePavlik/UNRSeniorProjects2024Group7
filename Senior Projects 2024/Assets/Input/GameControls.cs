@@ -153,8 +153,8 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""id"": ""209b91b8-f53c-4858-a74c-9ad514a3f863"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [

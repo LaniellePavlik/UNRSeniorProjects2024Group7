@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameEventsManager : MonoBehaviour
 {
-    public static GameEventsManager Instance { get; private set;}
+    public static GameEventsManager instance { get; private set;}
 
-    public PatronRequests patronEvents;
+    // public PatronRequests patronEvents;
     public QuestEvents questEvents;
 
     public InputEvents inputEvents;
@@ -14,13 +14,13 @@ public class GameEventsManager : MonoBehaviour
     //Initalize everything
     private void Awake()
     {
-        if (Instance != null)
+        if (instance != null)
         {
             Debug.LogError("More than one event mgr in scene");
         }
-        Instance = this;
+        instance = this;
 
-        patronEvents = new PatronRequests();
+        // patronEvents = new PatronRequests();
         questEvents = new QuestEvents();
         inputEvents = new InputEvents();
     }

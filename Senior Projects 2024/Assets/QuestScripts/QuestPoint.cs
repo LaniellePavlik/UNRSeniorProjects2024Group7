@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(SphereCollider))]
 public class QuestPoint : MonoBehaviour
 {
     [Header("Quest")]
     [SerializeField] private PatronRequests questInfoForPoint;
+
     private bool playerIsNear = false;
     private string questId;
     private QuestState currentQuestState;
@@ -18,14 +19,14 @@ public class QuestPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventsManager.Instance.questEvents.onQuestStateChange += QuestStateChange;
-        GameEventsManager.Instance.inputEvents.onSubmitPressed += SubmitPressed;
+        GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
+        GameEventsManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.Instance.questEvents.onQuestStateChange -= QuestStateChange;
-        GameEventsManager.Instance.inputEvents.onSubmitPressed -= SubmitPressed;
+        GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
+        GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
     private void SubmitPressed()
@@ -35,9 +36,9 @@ public class QuestPoint : MonoBehaviour
             return;
         }
 
-        GameEventsManager.Instance.questEvents.StartQuest(questId);
-        GameEventsManager.Instance.questEvents.AdvanceQuest(questId);
-        GameEventsManager.Instance.questEvents.FinishQuest(questId);
+        GameEventsManager.instance.questEvents.StartQuest(questId);
+        GameEventsManager.instance.questEvents.AdvanceQuest(questId);
+        GameEventsManager.instance.questEvents.FinishQuest(questId);
     }
 
     private void QuestStateChange(Quests quest)
@@ -50,17 +51,17 @@ public class QuestPoint : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D otherColldier)
+    private void OnTriggerEnter(Collider otherColldier)
     {
-        if (otherColldier.CompareTag("Player"))
+        if (otherColldier.tag == "Player")
         {
             playerIsNear = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D otherColldier)
+    private void OnTriggerExit(Collider otherColldier)
     {
-        if (otherColldier.CompareTag("Player"))
+        if (otherColldier.tag == "Player")
         {
             playerIsNear = false;
         }

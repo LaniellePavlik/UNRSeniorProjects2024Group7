@@ -13,6 +13,7 @@ public class InputMgr : MonoBehaviour
     private InputAction move;
     private InputAction dash;
     private InputAction cursorPos;
+    private InputAction interact;
     public void Awake()
     {
         inst = this;
@@ -30,6 +31,9 @@ public class InputMgr : MonoBehaviour
         dash = input.Movement.Dash;
         dash.Enable();
         dash.performed += StartDash;
+
+        interact = input.Interaction.Talk;
+        interact.Enable();
     }
 
     private void OnDisable()
@@ -37,12 +41,13 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
+        interact.Disable();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        input.Interaction.Talk.performed += SubmitPressed;
     }
 
     // Update is called once per frame
@@ -58,11 +63,12 @@ public class InputMgr : MonoBehaviour
     }
 
 
-     public void SubmitPressed(InputAction.CallbackContext context)
+    public void SubmitPressed(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            GameEventsManager.Instance.inputEvents.SubmitPressed();
-        }
+        // if (context.started)
+        // {
+        //     print("heello");
+            GameEventsManager.instance.inputEvents.SubmitPressed();
+        // }
     }
 }

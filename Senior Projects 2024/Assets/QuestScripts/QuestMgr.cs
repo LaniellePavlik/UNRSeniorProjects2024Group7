@@ -13,16 +13,16 @@ public class QuestMgr : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventsManager.Instance.questEvents.onStartQuest += StartQuest;
-        GameEventsManager.Instance.questEvents.onAdvanceQuest += AdvanceQuest;
-        GameEventsManager.Instance.questEvents.onFinishQuest += FinishQuest;
+        GameEventsManager.instance.questEvents.onStartQuest += StartQuest;
+        GameEventsManager.instance.questEvents.onAdvanceQuest += AdvanceQuest;
+        GameEventsManager.instance.questEvents.onFinishQuest += FinishQuest;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.Instance.questEvents.onStartQuest -= StartQuest;
-        GameEventsManager.Instance.questEvents.onAdvanceQuest -= AdvanceQuest;
-        GameEventsManager.Instance.questEvents.onFinishQuest -= FinishQuest;
+        GameEventsManager.instance.questEvents.onStartQuest -= StartQuest;
+        GameEventsManager.instance.questEvents.onAdvanceQuest -= AdvanceQuest;
+        GameEventsManager.instance.questEvents.onFinishQuest -= FinishQuest;
     }
 
     private void Start()
@@ -30,7 +30,7 @@ public class QuestMgr : MonoBehaviour
         //Broadcast the inital state of all quests on startup
         foreach (Quests quest in questMap.Values)
         {
-            GameEventsManager.Instance.questEvents.QuestStateChange(quest);
+            GameEventsManager.instance.questEvents.QuestStateChange(quest);
         }
     }
     private void StartQuest(string id)
