@@ -51162,7 +51162,7 @@ MonoBehaviour:
   contextSize: 8192
   batchSize: 512
   basePrompt: 
-  model: llama-3.2-1b-instruct-q4_k_m.gguf
+  model: 
   chatTemplate: llama3 chat
   lora: 
   loraWeights: 
