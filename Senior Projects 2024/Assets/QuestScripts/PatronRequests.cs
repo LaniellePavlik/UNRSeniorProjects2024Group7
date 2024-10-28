@@ -17,7 +17,7 @@ public class PatronRequests : ScriptableObject
     public GameObject[] questStepPrefabs;
 
     [Header("Rewards")]
-    public int expGain;
+    public int goldReward;
 
     //Quest steps are broken into pieces we need to do consecutively, not things that can all be done at the same time 
     GameObject[] questSteps;

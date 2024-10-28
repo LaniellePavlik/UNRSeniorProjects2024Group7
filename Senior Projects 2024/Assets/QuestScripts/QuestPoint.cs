@@ -8,13 +8,20 @@ public class QuestPoint : MonoBehaviour
     [Header("Quest")]
     [SerializeField] private PatronRequests questInfoForPoint;
 
+    [Header("Config")]
+    [SerializeField] private bool startPoint = true;
+    [SerializeField] private bool finishPoint = true;
+
     private bool playerIsNear = false;
     private string questId;
     private QuestState currentQuestState;
 
+    private QuestIcon questIcon;
+
     private void Awake()
     {
         questId = questInfoForPoint.id;
+        questIcon = GetComponentInChildren<QuestIcon>();
     }
 
     private void OnEnable()
@@ -36,9 +43,14 @@ public class QuestPoint : MonoBehaviour
             return;
         }
 
-        GameEventsManager.instance.questEvents.StartQuest(questId);
-        GameEventsManager.instance.questEvents.AdvanceQuest(questId);
-        GameEventsManager.instance.questEvents.FinishQuest(questId);
+        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+        {
+            GameEventsManager.instance.questEvents.StartQuest(questId);
+        }
+        else if (currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
+        {
+            GameEventsManager.instance.questEvents.FinishQuest(questId);
+        }
     }
 
     private void QuestStateChange(Quests quest)
@@ -47,7 +59,7 @@ public class QuestPoint : MonoBehaviour
         if (quest.info.id.Equals(questId))
         {
             currentQuestState = quest.state;
-            Debug.Log("Quest with id: " + questId + "Update to state: " + currentQuestState);
+            questIcon.SetState(currentQuestState, startPoint, finishPoint);
         }
     }
 
