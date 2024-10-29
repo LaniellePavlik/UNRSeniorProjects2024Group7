@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class TalkToPatronQuestStep : QuestStep
@@ -22,11 +23,25 @@ public class TalkToPatronQuestStep : QuestStep
         if (patronsSpokenTo < speakingGoal)
         {
             patronsSpokenTo++;
+            UpdateState();
         }
 
         if (patronsSpokenTo >= speakingGoal)
         {
             FinishQuestStep();
         }
+    }
+
+    private void UpdateState()
+    {
+        string state = patronsSpokenTo.ToString();
+        string status = "Spoken To " + patronsSpokenTo + " / " + speakingGoal;
+        ChangeState(state, status);
+    }
+
+    protected override void SetQuestStepState(string state)
+    {
+        this.patronsSpokenTo = System.Int32.Parse(state);
+        UpdateState();
     }
 }

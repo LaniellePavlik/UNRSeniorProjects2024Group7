@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class DefeatLvlQuestStep : QuestStep
 {
-   
+   protected override void SetQuestStepState(string state)
+    {
+        //nothing yet
+    }
 }

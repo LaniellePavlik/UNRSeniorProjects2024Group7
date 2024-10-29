@@ -24,6 +24,7 @@ public class DefeatEnemiesQuestStep : QuestStep
         if (enemiesDefeated < enemyGoal)
         {
             enemiesDefeated++;
+            UpdateState();
         }
 
         if (enemiesDefeated >= enemyGoal)
@@ -35,7 +36,8 @@ public class DefeatEnemiesQuestStep : QuestStep
     private void UpdateState()
     {
         string state = enemiesDefeated.ToString();
-        ChangeState(state);
+        string status = "Defeated " + enemiesDefeated + " / " + enemyGoal + " enemies.";
+        ChangeState(state, status);
     }
 
     protected override void SetQuestStepState(string state)

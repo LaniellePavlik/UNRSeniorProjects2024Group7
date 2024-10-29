@@ -65,10 +65,6 @@ public class InputMgr : MonoBehaviour
 
     public void SubmitPressed(InputAction.CallbackContext context)
     {
-        // if (context.started)
-        // {
-        //     print("heello");
-            GameEventsManager.instance.inputEvents.SubmitPressed();
-        // }
+        GameEventsManager.instance.inputEvents.SubmitPressed();
     }
 }
