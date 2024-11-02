@@ -7,21 +7,28 @@ public class Projectile : MonoBehaviour
     public Vector3 direction;
     public float speed;
     public float acceleration;
+    public float lifetime;
+    public float baseDamage;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    float timeAlive = 0;
+    protected float timeAlive = 0;
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    protected virtual void UpdatePosition()
     {
         timeAlive += Time.deltaTime;
         transform.position += direction * speed * Time.deltaTime;
         speed += acceleration * Time.deltaTime;
 
-        if(timeAlive > 6)
+        if (timeAlive > lifetime)
         {
             Destroy(gameObject);
         }
@@ -29,9 +36,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.tag.Equals("Weapon"))
+        if (!other.gameObject.tag.Equals("Weapon"))
         {
-            Debug.Log("hit");
+            other.GetComponent<Entity>().TakeDamage(baseDamage);
             Destroy(gameObject);
         }
     }

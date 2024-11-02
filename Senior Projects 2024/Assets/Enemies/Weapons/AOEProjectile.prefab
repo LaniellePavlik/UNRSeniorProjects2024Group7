@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4056908228232927677}
   - component: {fileID: 9038181143029789126}
   - component: {fileID: 3257791008358148227}
-  - component: {fileID: -8936109649086216388}
+  - component: {fileID: 979644086733985868}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: AOEProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8936109649086216388
+--- !u!114 &979644086733985868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471498516342936048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07d3c70ac924f1e4e9e4385239e30442, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c968267330ead047910ac14b60865f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  speed: 15
+  speed: 20
   acceleration: 0
   lifetime: 6
   baseDamage: 5
+  debugSphere: {fileID: 3581881726750862898, guid: e62dd3761e31e6c4fa6194549965e068, type: 3}

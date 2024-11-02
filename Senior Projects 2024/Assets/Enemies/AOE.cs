@@ -24,11 +24,13 @@ public class AOE : EnemyAI
         stopTime = Random.Range(minStopTime, maxStopTime);
     }
 
+    public float attackCooldown = 0;
 
     Vector3 movePosition;
     // Update is called once per frame
     void Update()
     {
+        /*
         float dist = Vector3.Distance(transform.position, movePosition);
         if(dist < 1)
         {
@@ -36,5 +38,14 @@ public class AOE : EnemyAI
         }
         SetMove(movePosition);
         StopInterval();
+        */
+
+        attackCooldown += Time.deltaTime;
+
+        if (attackCooldown > 4)
+        {
+            entity.weapons[0].StartAttack();
+            attackCooldown = 0;
+        }
     }
 }

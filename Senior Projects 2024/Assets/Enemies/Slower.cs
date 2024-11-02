@@ -17,6 +17,7 @@ public class Slower : EnemyAI
 
     Vector3 movePosition;
     float angle;
+    public float attackCooldown;
     // Update is called once per frame
     void Update()
     {
@@ -24,5 +25,14 @@ public class Slower : EnemyAI
         movePosition.z = player.position.z + orbitRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
         SetMove(movePosition);
         angle += Time.deltaTime * 30;
+        attackCooldown += Time.deltaTime;
+
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
+
+        if (Vector3.Distance(transform.position, player.position) < orbitRadius+2 && attackCooldown > 5)
+        {
+            entity.weapons[0].StartAttack();
+            attackCooldown = 0;
+        }
     }
 }

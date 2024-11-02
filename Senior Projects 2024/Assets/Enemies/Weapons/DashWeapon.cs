@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class DashWeapon : Weapon
 {
-    public float maxHealth;
-    public float health;
-    public float speed;
-    public List<Weapon> weapons;
-
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        
     }
 
     // Update is called once per frame
@@ -21,8 +16,11 @@ public class Entity : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    private void OnTriggerEnter(Collider collider)
     {
-        health -= damage;
+        if (collider.gameObject.tag.Equals("Player"))
+        {
+            collider.GetComponent<Entity>().TakeDamage(baseDamage);
+        }
     }
 }

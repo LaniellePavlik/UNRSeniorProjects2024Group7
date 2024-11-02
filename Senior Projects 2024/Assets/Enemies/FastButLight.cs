@@ -65,16 +65,18 @@ public class FastButLight : EnemyAI
     bool inBetweenDashes;
     protected override void Dash(Vector3 dashStartPosiiton, Vector3 dashEndPosiiton)
     {
+
         base.Dash(dashStartPosiiton, dashEndPosiiton);
         if (!dashing)
         {
             dashCounter++;
             this.dashStartPosiiton = transform.position;
-            this.dashEndPosiiton = player.position + (player.position - transform.position).normalized * Random.Range(3,5);
+            this.dashEndPosiiton = transform.position + (player.position - transform.position).normalized * Random.Range(3,5);
             this.dashEndPosiiton.y = this.dashStartPosiiton.y;
             inBetweenDashes = true;
+            transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
         }
-        if(dashCounter > 3)
+        if (dashCounter > 3)
         {
             dashCounter = 0;
             dashCoolDownTimer = 0;

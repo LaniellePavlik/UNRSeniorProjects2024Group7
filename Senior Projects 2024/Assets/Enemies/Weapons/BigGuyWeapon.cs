@@ -10,7 +10,6 @@ public class BigGuyWeapon : Weapon
         
     }
 
-    bool startSwing;
     bool attacking;
     // Update is called once per frame
     void Update()
@@ -69,7 +68,7 @@ public class BigGuyWeapon : Weapon
         {
             if (!hitThisSwing && swinging)
             {
-                Debug.Log("hit");
+                collider.GetComponent<Entity>().TakeDamage(baseDamage);
                 hitThisSwing = true;
             }
         }
