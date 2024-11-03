@@ -151,3 +151,4 @@ MonoBehaviour:
   acceleration: 0
   lifetime: 6
   baseDamage: 5
+  damageTag: Player

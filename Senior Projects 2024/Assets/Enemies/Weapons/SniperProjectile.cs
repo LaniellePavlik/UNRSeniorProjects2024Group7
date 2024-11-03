@@ -20,7 +20,7 @@ public class SniperProjectile : Projectile
     {
         if (!other.gameObject.tag.Equals("Weapon"))
         {
-            if(other.gameObject.tag.Equals("Player"))
+            if(other.gameObject.tag.Equals(damageTag))
                 other.GetComponent<Entity>().TakeDamage(baseDamage);
             Destroy(gameObject);
         }

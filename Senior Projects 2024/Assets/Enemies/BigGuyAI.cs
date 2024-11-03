@@ -25,6 +25,8 @@ public class BigGuyAI : EnemyAI
 
         moveTime = Random.Range(minMoveTime, maxMoveTime);
         stopTime = Random.Range(minStopTime, maxStopTime);
+
+        player = PlayerMgr.inst.player.transform;
     }
 
     // Update is called once per frame

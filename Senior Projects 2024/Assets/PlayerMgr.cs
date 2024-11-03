@@ -11,9 +11,11 @@ public class PlayerMgr : MonoBehaviour
     public Entity player;
 
     public static PlayerMgr inst;
+
+    public List<Interactable> interactables;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         inst = this;
         speed = baseSpeed;

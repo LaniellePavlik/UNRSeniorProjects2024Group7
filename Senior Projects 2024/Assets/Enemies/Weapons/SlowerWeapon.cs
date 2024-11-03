@@ -30,7 +30,6 @@ public class SlowerWeapon : Weapon
     }
 
     bool stabbing;
-    bool windDown;
     float timer;
     public float stabTime;
     public float windDownTime;
@@ -44,7 +43,6 @@ public class SlowerWeapon : Weapon
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zPosition);
             if (timer > stabTime)
             {
-                windDown = true;
                 stabbing = false;
                 timer = 0;
             }
@@ -56,7 +54,6 @@ public class SlowerWeapon : Weapon
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zPosition);
             if (timer > windDownTime)
             {
-                windDown = false;
                 hitThisStab = false;
                 attacking = false;
                 timer = 0;
@@ -67,7 +64,7 @@ public class SlowerWeapon : Weapon
     bool hitThisStab;
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag.Equals("Player"))
+        if (collider.gameObject.tag.Equals(damageTag))
         {
             if (!hitThisStab && stabbing)
             {

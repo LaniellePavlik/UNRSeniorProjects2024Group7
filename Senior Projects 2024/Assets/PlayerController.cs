@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float dashDistance;
     public float dashCooldown;
     public float dashCooldownTimer;
+    public float attackCooldown;
+    public float attackCooldownTimer;
 
     private Vector3 dashStartPosiiton;
     private Vector3 dashEndPosiiton;
@@ -28,7 +30,8 @@ public class PlayerController : MonoBehaviour
     {
         if (dashing)
             Dash();
-        dashCooldown += Time.deltaTime;
+        dashCooldownTimer += Time.deltaTime;
+        attackCooldownTimer += Time.deltaTime;
     }
 
     public void MovePlayer(Vector2 input)
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartDash(Vector2 mousePos, Vector2 moveInput)
     {
-        if(dashCooldown > dashCooldownTimer)
+        if(dashCooldown < dashCooldownTimer)
         {
             Vector3 dashDirection;
             if (moveInput != Vector2.zero)
@@ -74,7 +77,16 @@ public class PlayerController : MonoBehaviour
             dashStartPosiiton = transform.position;
             dashEndPosiiton = transform.position + dashDirection * dashDistance;
             dashing = true;
-            dashCooldown = 0;
+            dashCooldownTimer = 0;
+        }
+    }
+
+    public void StartAttack()
+    {
+        if(attackCooldown < attackCooldownTimer)
+        {
+            playerEnt.weapons[0].StartAttack();
+            attackCooldownTimer = 0;
         }
     }
 
@@ -93,5 +105,14 @@ public class PlayerController : MonoBehaviour
             dashing = false;
         }
 
+    }
+
+    public void Interact()
+    {
+        foreach(Interactable inter in PlayerMgr.inst.interactables)
+        {
+            if(inter.interactable)
+                inter.Interact();
+        }
     }
 }

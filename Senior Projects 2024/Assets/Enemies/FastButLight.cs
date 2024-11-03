@@ -16,6 +16,7 @@ public class FastButLight : EnemyAI
         tripleDashStarted = false;
         inBetweenDashes = false;
         dashSpeed = .1f;
+        player = PlayerMgr.inst.player.transform;
     }
 
     Vector3 movePosition;

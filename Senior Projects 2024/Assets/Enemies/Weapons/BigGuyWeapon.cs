@@ -64,7 +64,7 @@ public class BigGuyWeapon : Weapon
     bool hitThisSwing;
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag.Equals("Player"))
+        if(collider.gameObject.tag.Equals(damageTag))
         {
             if (!hitThisSwing && swinging)
             {

@@ -12,6 +12,7 @@ public class Slower : EnemyAI
     {
         movePosition = Vector3.zero;
         agent = GetComponent<NavMeshAgent>();
+        player = PlayerMgr.inst.player.transform;
     }
 
 

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashWeapon : Weapon
+public class Interactable : MonoBehaviour
 {
+    public bool interactable;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,8 @@ public class DashWeapon : Weapon
         
     }
 
-    private void OnTriggerEnter(Collider collider)
+    public virtual void Interact()
     {
-        if (collider.gameObject.tag.Equals(damageTag))
-        {
-            collider.GetComponent<Entity>().TakeDamage(baseDamage);
-        }
+        Debug.Log("interacted with " + gameObject.name);
     }
 }

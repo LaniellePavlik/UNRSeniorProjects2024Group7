@@ -13,6 +13,7 @@ public class AOE : EnemyAI
     // Start is called before the first frame update
     void Start()
     {
+        player = PlayerMgr.inst.player.transform;
         movePosition = player.position;
         agent = GetComponent<NavMeshAgent>();
         maxStopTime = AOEMaxStopTime;
@@ -30,7 +31,7 @@ public class AOE : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         float dist = Vector3.Distance(transform.position, movePosition);
         if(dist < 1)
         {
@@ -38,8 +39,7 @@ public class AOE : EnemyAI
         }
         SetMove(movePosition);
         StopInterval();
-        */
-
+        
         attackCooldown += Time.deltaTime;
 
         if (attackCooldown > 4)
