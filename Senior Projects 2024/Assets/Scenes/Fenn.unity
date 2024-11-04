@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 132338854}
     m_Modifications:
+    - target: {fileID: 744858818224605314, guid: 641c1030bbfba7346bda8207fafb799f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3438499748890430330, guid: 641c1030bbfba7346bda8207fafb799f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -218,7 +222,7 @@ GameObject:
   - component: {fileID: 132338851}
   - component: {fileID: 132338850}
   m_Layer: 0
-  m_Name: NPC (1)
+  m_Name: NPC EndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +257,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -318,7 +322,7 @@ Transform:
   m_GameObject: {fileID: 132338849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0.5, z: 13.29}
+  m_LocalPosition: {x: -13.38, y: 0.5, z: 13.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -676,6 +680,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadQuestState: 1
+--- !u!1 &436079347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436079348}
+  - component: {fileID: 436079349}
+  m_Layer: 0
+  m_Name: SceneMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436079348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436079347}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 787.39044, y: 416.06503, z: 1029.7437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 497737506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436079349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436079347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2087ef12f4a301458ebb57b8844205e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene: 1
 --- !u!1 &497737505
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +757,7 @@ Transform:
   - {fileID: 1614424715}
   - {fileID: 430184001}
   - {fileID: 2021344809}
+  - {fileID: 436079348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538815673
@@ -724,7 +774,7 @@ GameObject:
   - component: {fileID: 538815674}
   - component: {fileID: 538815678}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: NPC StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,7 +795,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1030,8 +1080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Oh a patron? What can I do for you? Perhaps I could recommend you a book
-    or two?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5cad3a26285f464da949ce53d81dfc1, type: 2}
   m_sharedMaterial: {fileID: -7518211795779197508, guid: d5cad3a26285f464da949ce53d81dfc1, type: 2}
@@ -1058,7 +1107,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.55
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1238,7 +1287,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109155954}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1351,9 +1400,11 @@ GameObject:
   - component: {fileID: 1435567537}
   - component: {fileID: 1435567539}
   - component: {fileID: 1435567538}
+  - component: {fileID: 1435567540}
+  - component: {fileID: 1435567541}
   m_Layer: 5
   m_Name: ChatPanel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1417,6 +1468,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435567536}
   m_CullTransparentMesh: 1
+--- !u!114 &1435567540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435567536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87483688e207b3644b0fdcab1019fcb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdingPosition: {x: 5000, y: 0}
+  visiblePosition: {x: 0, y: 0}
+  panel: {fileID: 1435567537}
+  _isVisible: 1
+  isTimed: 0
+  showDuration: 5
+--- !u!114 &1435567541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435567536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178403474a1c2994ab06c7908f23367d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 1042885648}
+  lines:
+  - Oh a patron? What can I do for you? Perhaps I could recommend you a book or two?
+  - I see, Have a nice day then!
+  textSpeed: 0.3
+  panel: {fileID: 1435567540}
 --- !u!1 &1573963903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904099808484498172, guid: 6de9efb83c1676b4ba6ce1725fbf974a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.83
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6904099808484498172, guid: 6de9efb83c1676b4ba6ce1725fbf974a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2039,7 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904099808484498172, guid: 6de9efb83c1676b4ba6ce1725fbf974a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.83
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6904099808484498172, guid: 6de9efb83c1676b4ba6ce1725fbf974a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2138,6 +2225,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7115114407045225506, guid: 641c1030bbfba7346bda8207fafb799f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8529994051376094280, guid: 641c1030bbfba7346bda8207fafb799f, type: 3}
       propertyPath: finishPoint
       value: 0
@@ -2162,6 +2253,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1573963907}
   - {fileID: 861430318}
   - {fileID: 1239598766}
   - {fileID: 288375896}
@@ -2170,4 +2262,3 @@ SceneRoots:
   - {fileID: 538815677}
   - {fileID: 132338854}
   - {fileID: 497737506}
-  - {fileID: 1573963907}

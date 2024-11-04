@@ -12,6 +12,8 @@ public class QuestPoint : MonoBehaviour
     [SerializeField] private bool startPoint = true;
     [SerializeField] private bool finishPoint = true;
 
+    GameObject talkCanvas;
+    PanelMover dialogue;
     private bool playerIsNear = false;
     private string questId;
     private QuestState currentQuestState;
@@ -22,6 +24,8 @@ public class QuestPoint : MonoBehaviour
     {
         questId = questInfoForPoint.id;
         questIcon = GetComponentInChildren<QuestIcon>();
+        talkCanvas = GameObject.FindGameObjectWithTag("Panel");
+        dialogue = talkCanvas.GetComponent<PanelMover>();
     }
 
     private void OnEnable()
@@ -42,6 +46,8 @@ public class QuestPoint : MonoBehaviour
         {
             return;
         }
+
+        dialogue.isVisible = true;
 
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
