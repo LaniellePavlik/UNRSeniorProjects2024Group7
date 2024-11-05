@@ -1080,7 +1080,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Oh a patron? What can I do for you? Perhaps I could recommend you a book
+    or two?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5cad3a26285f464da949ce53d81dfc1, type: 2}
   m_sharedMaterial: {fileID: -7518211795779197508, guid: d5cad3a26285f464da949ce53d81dfc1, type: 2}
@@ -1110,7 +1111,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 17
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1427,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 5000, y: 0}
   m_SizeDelta: {x: 1432, y: 889}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435567538
@@ -1483,7 +1484,7 @@ MonoBehaviour:
   holdingPosition: {x: 5000, y: 0}
   visiblePosition: {x: 0, y: 0}
   panel: {fileID: 1435567537}
-  _isVisible: 1
+  _isVisible: 0
   isTimed: 0
   showDuration: 5
 --- !u!114 &1435567541
@@ -1502,8 +1503,8 @@ MonoBehaviour:
   lines:
   - Oh a patron? What can I do for you? Perhaps I could recommend you a book or two?
   - I see, Have a nice day then!
-  textSpeed: 0.3
-  panel: {fileID: 1435567540}
+  textSpeed: 0.05
+  textbox: {fileID: 1435567540}
 --- !u!1 &1573963903
 GameObject:
   m_ObjectHideFlags: 0

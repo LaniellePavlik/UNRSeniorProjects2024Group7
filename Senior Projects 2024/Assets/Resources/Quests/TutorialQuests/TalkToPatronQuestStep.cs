@@ -8,14 +8,19 @@ public class TalkToPatronQuestStep : QuestStep
    int patronsSpokenTo = 0;
    int speakingGoal = 1;
 
+    private void Start()
+    {
+        UpdateState();
+    }
+
    private void OnEnable()
     {
-        //When we have a listener for enemy defeats put it here
+        GameEventsManager.instance.miscEvents.onPatronTalked += SpokenTo;    
     }
 
     private void OnDisable()
     {
-        //When we have a listener for enemy defeats put it here
+        GameEventsManager.instance.miscEvents.onPatronTalked -= SpokenTo; 
     }
 
     private void SpokenTo()

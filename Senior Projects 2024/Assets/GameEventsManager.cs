@@ -8,8 +8,8 @@ public class GameEventsManager : MonoBehaviour
 
     // public PatronRequests patronEvents;
     public QuestEvents questEvents;
-
     public InputEvents inputEvents;
+    public MiscEvents miscEvents;
     
     //Initalize everything
     private void Awake()
@@ -23,5 +23,6 @@ public class GameEventsManager : MonoBehaviour
         // patronEvents = new PatronRequests();
         questEvents = new QuestEvents();
         inputEvents = new InputEvents();
+        miscEvents = new MiscEvents();
     }
 }

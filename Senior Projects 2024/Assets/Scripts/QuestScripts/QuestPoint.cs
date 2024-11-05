@@ -14,6 +14,7 @@ public class QuestPoint : MonoBehaviour
 
     GameObject talkCanvas;
     PanelMover dialogue;
+    Dialogue script;
     private bool playerIsNear = false;
     private string questId;
     private QuestState currentQuestState;
@@ -26,6 +27,7 @@ public class QuestPoint : MonoBehaviour
         questIcon = GetComponentInChildren<QuestIcon>();
         talkCanvas = GameObject.FindGameObjectWithTag("Panel");
         dialogue = talkCanvas.GetComponent<PanelMover>();
+        script = talkCanvas.GetComponent<Dialogue>();
     }
 
     private void OnEnable()
@@ -48,6 +50,7 @@ public class QuestPoint : MonoBehaviour
         }
 
         dialogue.isVisible = true;
+        script.StartDialogue();
 
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {

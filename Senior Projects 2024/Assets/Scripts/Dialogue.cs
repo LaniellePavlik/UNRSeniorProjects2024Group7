@@ -8,34 +8,37 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
-    public PanelMover panel;
+    public PanelMover textbox;
 
     private int index;
+
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
+            {
                 NextLine();
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = lines[index];
+            }
         }
-        else
-        {
-            StopAllCoroutines();
-            textComponent.text = lines[index];
-        }
-        
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
+        GameEventsManager.instance.miscEvents.PatronTalked();
+        textComponent.text = string.Empty;
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -59,7 +62,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            panel.isVisible = false;
+            textbox.isVisible = false;
         }
     }
 }
