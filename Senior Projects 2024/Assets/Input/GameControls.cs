@@ -127,6 +127,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RegularAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""228a5d61-502c-443f-acd8-f7ab1156d918"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -138,6 +147,45 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CursorPos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0caa45be-e36d-4484-b3d6-ca100327fa53"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RegularAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Interaction"",
+            ""id"": ""30173199-3606-4ea0-99a7-fb8fe2892f4c"",
+            ""actions"": [
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""04b50ceb-af91-4a31-8245-d8d718b29dfb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""048d2eb4-cb47-463c-95e9-e920053662f8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -153,6 +201,10 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         // Attack
         m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
         m_Attack_CursorPos = m_Attack.FindAction("CursorPos", throwIfNotFound: true);
+        m_Attack_RegularAttack = m_Attack.FindAction("RegularAttack", throwIfNotFound: true);
+        // Interaction
+        m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
+        m_Interaction_Interact = m_Interaction.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,11 +321,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Attack;
     private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
     private readonly InputAction m_Attack_CursorPos;
+    private readonly InputAction m_Attack_RegularAttack;
     public struct AttackActions
     {
         private @GameControls m_Wrapper;
         public AttackActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @CursorPos => m_Wrapper.m_Attack_CursorPos;
+        public InputAction @RegularAttack => m_Wrapper.m_Attack_RegularAttack;
         public InputActionMap Get() { return m_Wrapper.m_Attack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -286,6 +340,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @CursorPos.started += instance.OnCursorPos;
             @CursorPos.performed += instance.OnCursorPos;
             @CursorPos.canceled += instance.OnCursorPos;
+            @RegularAttack.started += instance.OnRegularAttack;
+            @RegularAttack.performed += instance.OnRegularAttack;
+            @RegularAttack.canceled += instance.OnRegularAttack;
         }
 
         private void UnregisterCallbacks(IAttackActions instance)
@@ -293,6 +350,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @CursorPos.started -= instance.OnCursorPos;
             @CursorPos.performed -= instance.OnCursorPos;
             @CursorPos.canceled -= instance.OnCursorPos;
+            @RegularAttack.started -= instance.OnRegularAttack;
+            @RegularAttack.performed -= instance.OnRegularAttack;
+            @RegularAttack.canceled -= instance.OnRegularAttack;
         }
 
         public void RemoveCallbacks(IAttackActions instance)
@@ -310,6 +370,52 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         }
     }
     public AttackActions @Attack => new AttackActions(this);
+
+    // Interaction
+    private readonly InputActionMap m_Interaction;
+    private List<IInteractionActions> m_InteractionActionsCallbackInterfaces = new List<IInteractionActions>();
+    private readonly InputAction m_Interaction_Interact;
+    public struct InteractionActions
+    {
+        private @GameControls m_Wrapper;
+        public InteractionActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_Interaction_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_Interaction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractionActions set) { return set.Get(); }
+        public void AddCallbacks(IInteractionActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InteractionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InteractionActionsCallbackInterfaces.Add(instance);
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        private void UnregisterCallbacks(IInteractionActions instance)
+        {
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        public void RemoveCallbacks(IInteractionActions instance)
+        {
+            if (m_Wrapper.m_InteractionActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInteractionActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InteractionActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InteractionActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InteractionActions @Interaction => new InteractionActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -318,5 +424,10 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     public interface IAttackActions
     {
         void OnCursorPos(InputAction.CallbackContext context);
+        void OnRegularAttack(InputAction.CallbackContext context);
+    }
+    public interface IInteractionActions
+    {
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
