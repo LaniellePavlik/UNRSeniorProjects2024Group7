@@ -6,10 +6,14 @@ using UnityEngine.Windows;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
+    public Entity playerEnt;
 
     public float dashSpeed;
     public float dashDistance;
+    public float dashCooldown;
+    public float dashCooldownTimer;
+    public float attackCooldown;
+    public float attackCooldownTimer;
 
     private Vector3 dashStartPosiiton;
     private Vector3 dashEndPosiiton;
@@ -18,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerEnt = GetComponent<Entity>();
     }
 
     // Update is called once per frame
@@ -26,6 +30,8 @@ public class PlayerController : MonoBehaviour
     {
         if (dashing)
             Dash();
+        dashCooldownTimer += Time.deltaTime;
+        attackCooldownTimer += Time.deltaTime;
     }
 
     public void MovePlayer(Vector2 input)
@@ -33,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (dashing)
             return;
 
-        Vector3 moveVector = new Vector3(input.x * Time.deltaTime, 0, input.y * Time.deltaTime) * moveSpeed;
+        Vector3 moveVector = new Vector3(input.x * Time.deltaTime, 0, input.y * Time.deltaTime) * playerEnt.speed;
 
         transform.position += moveVector;
     }
@@ -52,23 +58,36 @@ public class PlayerController : MonoBehaviour
 
     public void StartDash(Vector2 mousePos, Vector2 moveInput)
     {
-        Vector3 dashDirection;
-        if (moveInput != Vector2.zero)
+        if(dashCooldown < dashCooldownTimer)
         {
-            Vector3 moveVector = Vector3.Normalize(new Vector3(moveInput.x, 0, moveInput.y));
-            dashDirection = moveVector;
-        }
-        else
-        {
-            RaycastHit hit;
-            Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, float.MaxValue);
-            Vector3 mouseWorld = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-            dashDirection = Vector3.Normalize(mouseWorld - transform.position);
-        }
+            Vector3 dashDirection;
+            if (moveInput != Vector2.zero)
+            {
+                Vector3 moveVector = Vector3.Normalize(new Vector3(moveInput.x, 0, moveInput.y));
+                dashDirection = moveVector;
+            }
+            else
+            {
+                RaycastHit hit;
+                Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out hit, float.MaxValue);
+                Vector3 mouseWorld = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                dashDirection = Vector3.Normalize(mouseWorld - transform.position);
+            }
 
-        dashStartPosiiton = transform.position;
-        dashEndPosiiton = transform.position + dashDirection * dashDistance;
-        dashing = true;
+            dashStartPosiiton = transform.position;
+            dashEndPosiiton = transform.position + dashDirection * dashDistance;
+            dashing = true;
+            dashCooldownTimer = 0;
+        }
+    }
+
+    public void StartAttack()
+    {
+        if(attackCooldown < attackCooldownTimer)
+        {
+            playerEnt.weapons[0].StartAttack();
+            attackCooldownTimer = 0;
+        }
     }
 
     float dashTimer = 0;
@@ -86,5 +105,14 @@ public class PlayerController : MonoBehaviour
             dashing = false;
         }
 
+    }
+
+    public void Interact()
+    {
+        foreach(Interactable inter in PlayerMgr.inst.interactables)
+        {
+            if(inter.interactable)
+                inter.Interact();
+        }
     }
 }
