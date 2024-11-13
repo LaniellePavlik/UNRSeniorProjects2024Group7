@@ -25,4 +25,11 @@ public class MyScript
         string message = "Hello bot!";
         _ = llmCharacter.Chat(message, HandleReply);
     }
+
+
+
+
+
+
+
 }
