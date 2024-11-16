@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
     {
         if (dashing)
             Dash();
+// ok so this is not working lol. basically this is in an if statement within the update function but like. the syntax is very different here
+//ill leave liam to fix this bc idk his code and i dont want to break anything
+ //           AudioMgr.Instance.PlaySFX("Walk");
+
     }
 
     public void MovePlayer(Vector2 input)
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVector = new Vector3(input.x * Time.deltaTime, 0, input.y * Time.deltaTime) * moveSpeed;
 
         transform.position += moveVector;
+
     }
 
     public void ChangeDirection(Vector2 mousePos)
@@ -57,6 +62,8 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 moveVector = Vector3.Normalize(new Vector3(moveInput.x, 0, moveInput.y));
             dashDirection = moveVector;
+            //maybe it goes here. maybe it goes in the else statement idk!!!! but whereever it does go its the line of code below
+           // AudioMgr.Instance.PlaySFX("Dash");
         }
         else
         {
