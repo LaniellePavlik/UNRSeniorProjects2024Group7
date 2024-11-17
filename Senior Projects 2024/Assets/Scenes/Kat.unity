@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43872043, g: 0.47853798, b: 0.522054, a: 1}
+  m_IndirectSpecularColor: {r: 0.43872026, g: 0.4785378, b: 0.52205354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11980,9 +11980,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd99841ed921c9942844bcbfd60f1583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  playerEnt: {fileID: 0}
   dashSpeed: 0
   dashDistance: 0
+  dashCooldown: 0
+  dashCooldownTimer: 0
+  attackCooldown: 0
+  attackCooldownTimer: 0
 --- !u!65 &630604188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13155,19 +13159,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advancedOptions: 0
   remote: 0
-  _llm: {fileID: 1905730333}
-  APIKey: 
+  llm: {fileID: 1905730333}
   host: localhost
   port: 13333
   numRetries: 10
+  APIKey: 
   save: 
   saveCache: 0
   debugPrompt: 0
-  numPredict: 256
-  slot: -1
+  stream: 1
   grammar: 
   cachePrompt: 1
+  slot: -1
   seed: 0
+  numPredict: 256
   temperature: 0.2
   topK: 40
   topP: 0.9
@@ -13187,7 +13192,6 @@ MonoBehaviour:
   ignoreEos: 0
   nKeep: -1
   stop: []
-  stream: 1
   playerName: Amelia
   AIName: Ghost
   prompt: A chat between a curious librarian and a ghost that haunts the library
@@ -19457,8 +19461,6 @@ MonoBehaviour:
   SSLKeyPath: 
   minContextLength: 0
   maxContextLength: 0
-  embeddingsOnly: 0
-  embeddingLength: 0
 --- !u!1001 &980902573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39647,7 +39649,7 @@ MonoBehaviour:
   contextSize: 8192
   batchSize: 512
   basePrompt: 
-  model: 
+  model: llama-3.2-1b-instruct-q4_k_m.gguf
   chatTemplate: llama3 chat
   lora: 
   loraWeights: 
@@ -39659,8 +39661,6 @@ MonoBehaviour:
   SSLKeyPath: 
   minContextLength: 0
   maxContextLength: 131072
-  embeddingsOnly: 0
-  embeddingLength: 0
 --- !u!4 &1905730334
 Transform:
   m_ObjectHideFlags: 0
