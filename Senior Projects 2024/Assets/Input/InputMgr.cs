@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputMgr : MonoBehaviour
 {
@@ -15,10 +16,18 @@ public class InputMgr : MonoBehaviour
     private InputAction cursorPos;
     private InputAction regularAttack;
     private InputAction interact;
+    private Scene currentScene;
+
     public void Awake()
     {
         inst = this;
         input = new GameControls();
+    }
+
+        // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     private void OnEnable()
@@ -33,9 +42,14 @@ public class InputMgr : MonoBehaviour
         dash.Enable();
         dash.performed += StartDash;
 
-        regularAttack = input.Attack.RegularAttack;
-        regularAttack.performed += RegularAttack;
-        regularAttack.Enable();
+        currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if(sceneName != "Fenn3")
+        {
+            regularAttack = input.Attack.RegularAttack;
+            regularAttack.performed += RegularAttack;
+            regularAttack.Enable();
+        }
 
         interact = input.Interaction.Interact;
         interact.performed += Interact;
@@ -49,12 +63,6 @@ public class InputMgr : MonoBehaviour
         dash.Disable();
         regularAttack.Disable();
         interact.Disable();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
