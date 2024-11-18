@@ -27,6 +27,12 @@ public class SceneSwitch : MonoBehaviour
     //Sets the current scene to Main Menu
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         currentScene = 0;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

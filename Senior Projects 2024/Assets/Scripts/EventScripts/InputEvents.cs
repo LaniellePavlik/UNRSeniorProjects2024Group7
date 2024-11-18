@@ -11,4 +11,13 @@ public class InputEvents
             onSubmitPressed();
         }
     }
+
+    public event Action onQuestLogTogglePressed;
+    public void QuestLogTogglePressed()
+    {
+        if (onQuestLogTogglePressed != null) 
+        {
+            onQuestLogTogglePressed();
+        }
+    }
 }

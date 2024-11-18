@@ -16,4 +16,4 @@ MonoBehaviour:
   displayName: Save the Princess!
   questPrerecs: []
   questStepPrefabs: []
-  expGain: 50
+  goldReward: 0

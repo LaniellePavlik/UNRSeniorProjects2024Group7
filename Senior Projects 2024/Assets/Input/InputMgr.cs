@@ -16,7 +16,9 @@ public class InputMgr : MonoBehaviour
     private InputAction cursorPos;
     private InputAction regularAttack;
     private InputAction interact;
+    private InputAction questLog;
     private Scene currentScene;
+    private bool canDisable = false;
 
     public void Awake()
     {
@@ -27,7 +29,7 @@ public class InputMgr : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private void OnEnable()
@@ -44,8 +46,9 @@ public class InputMgr : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if(sceneName != "Fenn3")
+        if(sceneName != "Fenn")
         {
+            canDisable = true;
             regularAttack = input.Attack.RegularAttack;
             regularAttack.performed += RegularAttack;
             regularAttack.Enable();
@@ -53,7 +56,15 @@ public class InputMgr : MonoBehaviour
 
         interact = input.Interaction.Interact;
         interact.performed += Interact;
+        interact.performed += SubmitPressed;
         interact.Enable();
+
+        questLog = input.Interaction.QuestLogToggle;
+        questLog.performed += QuestLogTogglePressed;
+        questLog.Enable();
+
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement += DisablePlayerMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnablePlayerMovement;
     }
 
     private void OnDisable()
@@ -61,8 +72,12 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
-        regularAttack.Disable();
+        if(canDisable == true)
+            regularAttack.Disable();
         interact.Disable();
+        
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisablePlayerMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnablePlayerMovement;
     }
 
     // Update is called once per frame
@@ -85,5 +100,30 @@ public class InputMgr : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
         player.Interact();
+    }
+
+    public void SubmitPressed(InputAction.CallbackContext context)
+    {
+        GameEventsManager.instance.inputEvents.SubmitPressed();
+    }
+
+    private void DisablePlayerMovement() 
+    {
+        move.Disable();
+        cursorPos.Disable();
+        dash.Disable();
+    }
+
+    private void EnablePlayerMovement() 
+    {
+        move.Enable();
+        cursorPos.Enable();
+        dash.Enable();
+    }
+
+    public void QuestLogTogglePressed(InputAction.CallbackContext context)
+    {
+
+        GameEventsManager.instance.inputEvents.QuestLogTogglePressed();
     }
 }

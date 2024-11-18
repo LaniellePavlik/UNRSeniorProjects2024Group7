@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Quests
 {
-    //statuc ubfi
+    //Quest Info
     public PatronRequests info;
 
     //state info

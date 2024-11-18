@@ -17,4 +17,4 @@ MonoBehaviour:
   questPrerecs: []
   questStepPrefabs:
   - {fileID: 4425480428371356591, guid: a2512a9bfc5d03c4f97ce1f440abebba, type: 3}
-  expGain: 50
+  goldReward: 0

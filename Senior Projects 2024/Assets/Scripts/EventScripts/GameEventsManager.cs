@@ -10,6 +10,7 @@ public class GameEventsManager : MonoBehaviour
     public QuestEvents questEvents;
     public InputEvents inputEvents;
     public MiscEvents miscEvents;
+    public PlayerEvents playerEvents;
     
     //Initalize everything
     private void Awake()
@@ -24,5 +25,6 @@ public class GameEventsManager : MonoBehaviour
         questEvents = new QuestEvents();
         inputEvents = new InputEvents();
         miscEvents = new MiscEvents();
+        playerEvents = new PlayerEvents();
     }
 }
