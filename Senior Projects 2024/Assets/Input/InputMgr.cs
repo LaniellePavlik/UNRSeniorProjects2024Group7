@@ -112,6 +112,7 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
+        interact.Disable();
     }
 
     private void EnablePlayerMovement() 
@@ -119,11 +120,11 @@ public class InputMgr : MonoBehaviour
         move.Enable();
         cursorPos.Enable();
         dash.Enable();
+        interact.Enable();
     }
 
     public void QuestLogTogglePressed(InputAction.CallbackContext context)
     {
-
         GameEventsManager.instance.inputEvents.QuestLogTogglePressed();
     }
 }

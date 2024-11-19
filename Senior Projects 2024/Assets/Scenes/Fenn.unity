@@ -28055,7 +28055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 9000, y: 0}
   m_SizeDelta: {x: 1600, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1265258199
@@ -28073,7 +28073,7 @@ MonoBehaviour:
   holdingPosition: {x: 9000, y: 0}
   visiblePosition: {x: 0, y: 0}
   panel: {fileID: 1265258198}
-  _isVisible: 1
+  _isVisible: 0
   isTimed: 0
   showDuration: 5
 --- !u!114 &1265258200
@@ -35700,7 +35700,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575598300}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ed7d6851588ace478505bd589a3dd30, type: 3}
   m_Name: 
@@ -35708,6 +35708,8 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   speed: 0
+  healthSlider: {fileID: 0}
+  easeHealthSlider: {fileID: 0}
   weapons:
   - {fileID: 0}
 --- !u!65 &1575598304
@@ -35922,15 +35924,15 @@ RectTransform:
   m_GameObject: {fileID: 1581218659}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1762331335}
+  m_Father: {fileID: 2131050125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -850.39996, y: -237.85574}
-  m_SizeDelta: {x: 300, y: 1038.9115}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: -0.00012207031}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1581218661
 MonoBehaviour:
@@ -40450,7 +40452,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 382172178}
-  - {fileID: 1581218660}
   m_Father: {fileID: 2131050125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -48976,12 +48977,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1581218660}
   - {fileID: 1762331335}
   m_Father: {fileID: 592537820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3000, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2131050126
@@ -48999,7 +49001,7 @@ MonoBehaviour:
   holdingPosition: {x: 3000, y: 0}
   visiblePosition: {x: 0, y: 0}
   panel: {fileID: 2131050125}
-  _isVisible: 0
+  _isVisible: 1
   isTimed: 0
   showDuration: 5
 --- !u!114 &2131050127

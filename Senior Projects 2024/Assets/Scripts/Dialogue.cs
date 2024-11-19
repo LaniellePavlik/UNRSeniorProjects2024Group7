@@ -40,7 +40,10 @@ public class Dialogue : MonoBehaviour
         GameEventsManager.instance.miscEvents.PatronTalked();
         textComponent.text = string.Empty;
         index = 0;
+        GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         StartCoroutine(TypeLine());
+        // for(int i = 0; i < lines.Length; i++)
+        //     NextLine();
     }
 
     IEnumerator TypeLine()
@@ -54,6 +57,7 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
+
         if (index < lines.Length - 1)
         {
             index++;
@@ -63,6 +67,8 @@ public class Dialogue : MonoBehaviour
         else
         {
             textbox.isVisible = false;
+            GameEventsManager.instance.playerEvents.EnablePlayerMovement();
         }
     }
+    
 }
