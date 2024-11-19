@@ -29,6 +29,7 @@ public class TalkToPatronQuestStep : QuestStep
         {
             patronsSpokenTo++;
             UpdateState();
+            
         }
 
         if (patronsSpokenTo >= speakingGoal)
