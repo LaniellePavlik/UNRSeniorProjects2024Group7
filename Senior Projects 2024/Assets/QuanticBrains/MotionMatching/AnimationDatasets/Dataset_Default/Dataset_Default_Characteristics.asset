@@ -1,0 +1,375 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b8fdc3e5e24aefb1c64bce5b62cc4b, type: 3}
+  m_Name: Dataset_Default_Characteristics
+  m_EditorClassIdentifier: 
+  characteristicsByTags:
+  - id: Walk
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: Run
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: Strafing
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpIPC
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpFront
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpUpLow
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpUpMedium
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpUpHigh
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpUpVeryHigh
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: RunToRoll
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: JumpFence
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: FallingHigh
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: FallingLow
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: SitChair
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
+  - id: Idle
+    characteristics:
+    - bone:
+        id: 0
+        alias: Hips
+        boneName: Hips
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 5
+        alias: LeftFoot
+        boneName: LeftFoot
+      weightPosition: 1
+      weightVelocity: 1
+    - bone:
+        id: 6
+        alias: RightFoot
+        boneName: RightFoot
+      weightPosition: 1
+      weightVelocity: 1
+    weightFutureOffset: 1
+    weightFutureDirection: 1
+    weightPastOffset: 1
+    weightPastDirection: 1
