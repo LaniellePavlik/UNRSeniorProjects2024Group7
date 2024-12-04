@@ -11,8 +11,7 @@ public class SimpleInteraction : MonoBehaviour
 
     void Start()
     {
-        //this did NOT work
-        //playerText.text = "";
+        //need to clear text here, but not sure how
 
         playerText.onSubmit.AddListener(onInputFieldSubmit);
         playerText.Select();

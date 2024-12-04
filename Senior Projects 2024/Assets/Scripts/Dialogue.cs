@@ -13,11 +13,13 @@ public class Dialogue : MonoBehaviour
     public PanelMover textbox;
 
     private int index;
+    private int count;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
+        count = 0;
     }
 
     // Update is called once per frame
@@ -25,37 +27,34 @@ public class Dialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (textComponent.text == lines[index])
+            count++;
+            //if (textComponent.text == lines[index])
+            //{
+            //    NextLine();
+            //}
+            //else
+            //{
+            //    StopAllCoroutines();
+            //    textComponent.text = lines[index];
+            //}
+
+            if (count > 2)
             {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
+                textbox.isVisible = false;
+                GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+                count = 0;
             }
         }
     }
 
     public void StartDialogue()
     {
-        //confirmed, this method is called
-        //Debug.Log("2nd test");
-
-        //FIX ALL, modeled off of MultipleCharacters class
-        //public LLMCharacter ghostLLM;
-        //public InputField playerText1;
-        //public Text AIText1;
-        //MultipleCharactersInteraction interaction1;
-        //interaction1 = new MultipleCharactersInteraction(playerText1, AIText1, llmCharacter1);
-        //interaction1.Start();
-
-
+        //to do: figure out what following line does
         GameEventsManager.instance.miscEvents.PatronTalked();
-        textComponent.text = string.Empty;
+        //textComponent.text = string.Empty;
         index = 0;
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-        StartCoroutine(TypeLine());
+        //StartCoroutine(TypeLine());
         // for(int i = 0; i < lines.Length; i++)
         //     NextLine();
     }
@@ -84,5 +83,5 @@ public class Dialogue : MonoBehaviour
             GameEventsManager.instance.playerEvents.EnablePlayerMovement();
         }
     }
-    
+
 }
