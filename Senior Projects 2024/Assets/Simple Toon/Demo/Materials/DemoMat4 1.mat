@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DemoMat4 1
-  m_Shader: {fileID: 4800000, guid: 7cd5de0b884b14f88ab763ef465e1799, type: 3}
+  m_Shader: {fileID: 4800000, guid: 128c5f1edaefa4c4fb3f9f7a4615edb2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -87,6 +87,7 @@ Material:
     - _MinLight: 0
     - _MinShade: 0.754
     - _Offset: 1.1
+    - _OtlWidth: 2
     - _OutWidth: 1
     - _Outline: 1
     - _Overlap: 0
@@ -150,6 +151,7 @@ Material:
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _MaxColor: {r: 1, g: 0.9205481, b: 0.2688679, a: 1}
     - _MinColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OtlColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 289.11557, g: 0, b: 581.2745, a: 1}
     - _ShnColor: {r: 1, g: 1, b: 0, a: 1}
