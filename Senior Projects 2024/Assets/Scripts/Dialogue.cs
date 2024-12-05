@@ -8,11 +8,11 @@ using LLMUnitySamples;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
+    //public string[] lines;
     public float textSpeed;
     public PanelMover textbox;
 
-    private int index;
+    //private int index;
     private int count;
 
     // Start is called before the first frame update
@@ -37,7 +37,7 @@ public class Dialogue : MonoBehaviour
             //    StopAllCoroutines();
             //    textComponent.text = lines[index];
             //}
-
+            
             if (count > 2)
             {
                 textbox.isVisible = false;
@@ -52,36 +52,36 @@ public class Dialogue : MonoBehaviour
         //to do: figure out what following line does
         GameEventsManager.instance.miscEvents.PatronTalked();
         //textComponent.text = string.Empty;
-        index = 0;
+        //index = 0;
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         //StartCoroutine(TypeLine());
         // for(int i = 0; i < lines.Length; i++)
         //     NextLine();
     }
 
-    IEnumerator TypeLine()
-    {
-        foreach (char c in lines[index].ToCharArray())
-        {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-    }
+    //IEnumerator TypeLine()
+    //{
+    //    foreach (char c in lines[index].ToCharArray())
+    //    {
+    //        textComponent.text += c;
+    //        yield return new WaitForSeconds(textSpeed);
+    //    }
+    //}
 
-    void NextLine()
-    {
+    //void NextLine()
+    //{
 
-        if (index < lines.Length - 1)
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        }
-        else
-        {
-            textbox.isVisible = false;
-            GameEventsManager.instance.playerEvents.EnablePlayerMovement();
-        }
-    }
+    //    if (index < lines.Length - 1)
+    //    {
+    //        index++;
+    //        textComponent.text = string.Empty;
+    //        StartCoroutine(TypeLine());
+    //    }
+    //    else
+    //    {
+    //        textbox.isVisible = false;
+    //        GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+    //    }
+    //}
 
 }
