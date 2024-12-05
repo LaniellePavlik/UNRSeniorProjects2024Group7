@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public SceneSwitch sceneSwitch;
     public static bool isPaused;
+    public PanelMover UIpanel;
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenu.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (UIpanel.isVisible == true)
             {
                 ResumeGame();
             }
@@ -31,24 +33,12 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
+        UIpanel.isVisible = true;
+        GameEventsManager.instance.playerEvents.DisablePlayerMovement();
     }
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
-    }
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1f;
-        //need to create a scene called mainmenu in our build
-        SceneManager.LoadScene("MainMenu");
-    }
-    public void QuitGame()
-    {
-        Application.Quit();
+        UIpanel.isVisible = false;
+        GameEventsManager.instance.playerEvents.EnablePlayerMovement();
     }
 }

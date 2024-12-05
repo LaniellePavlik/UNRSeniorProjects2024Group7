@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 2a0f9d01b55d4564fbe3bde7d03c2771
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - graph: {instanceID: 0}
+  - previewCamPrefab: {fileID: 2246165808893077112, guid: a23649818ea291a44befdb469d106df1, type: 3}
+  - previewCam: {instanceID: 0}
+  - datasetToEdit: {instanceID: 0}
+  - character: {instanceID: 0}
+  - root: {instanceID: 0}
+  - avatar: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
