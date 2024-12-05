@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3324a0ba92b4760448c3517d91852437
   - enabled: 1
-    path: Assets/Scenes/NPC interactions.unity
+    path: Assets/Scenes/Fenn.unity
     guid: ad3249cd2b39acd4ab6d85966decdd24
   - enabled: 1
     path: Assets/Scenes/Liam.unity
