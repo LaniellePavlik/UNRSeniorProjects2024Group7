@@ -82,6 +82,7 @@ public class InputMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(move.ReadValue<Vector2>());
         player.MovePlayer(move.ReadValue<Vector2>());
         player.ChangeDirection(cursorPos.ReadValue<Vector2>());
     }

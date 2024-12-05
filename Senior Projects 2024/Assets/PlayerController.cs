@@ -41,7 +41,24 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer(Vector2 input)
     {
-        // if()
+        if (input.x >=.5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.x <= -.5)
+            playerAni.SetBool("isbackwards", true);
+
+        if (input.y >= .5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.y <= -.5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.y == 0 && input.x == 0)
+        {
+            playerAni.SetBool("isrunning", false);
+            playerAni.SetBool("isbackwards", false);
+        }
+
         // playerAni.SetBool("isrunning", true);
         if (dashing)
             return;
@@ -49,14 +66,6 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVector = new Vector3(input.x * Time.deltaTime, 0, input.y * Time.deltaTime) * playerEnt.speed;
 
         transform.position += moveVector;
-    }
-
-    public void Move(InputAction.CallbackContext context)
-    {
-        playerAni.SetBool("isrunning", true);
-        // print("run");
-        if (context.canceled)
-            playerAni.SetBool("isrunning", false);
     }
 
     public void ChangeDirection(Vector2 mousePos)
