@@ -384,7 +384,7 @@ Material:
     - _OUTLINE: 0
     - _ObjectSpaceUVMapping: 0
     - _OcclusionStrength: 1
-    - _Offset: 0.21
+    - _Offset: 1.1
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
@@ -421,8 +421,8 @@ Material:
     - _ShadeColor_Step: 0
     - _ShnIntense: 0.389
     - _ShnOverlap: 0
-    - _ShnRange: 0.134
-    - _ShnSmooth: 0.041
+    - _ShnRange: 0.08
+    - _ShnSmooth: 1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -448,8 +448,8 @@ Material:
     - _StencilWriteMaskGBuffer: 3
     - _StencilWriteMaskMV: 128
     - _StepOffset: 0
-    - _Steps: 2.5
-    - _StpSmooth: 0.025
+    - _Steps: 6.6
+    - _StpSmooth: 1
     - _SubsurfaceMask: 1
     - _SunDisk: 2
     - _SunSize: 0.04
