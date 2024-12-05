@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputMgr : MonoBehaviour
 {
@@ -15,10 +16,20 @@ public class InputMgr : MonoBehaviour
     private InputAction cursorPos;
     private InputAction regularAttack;
     private InputAction interact;
+    private InputAction questLog;
+    private Scene currentScene;
+    private bool canDisable = false;
+
     public void Awake()
     {
         inst = this;
         input = new GameControls();
+    }
+
+        // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     private void OnEnable()
@@ -33,13 +44,27 @@ public class InputMgr : MonoBehaviour
         dash.Enable();
         dash.performed += StartDash;
 
-        regularAttack = input.Attack.RegularAttack;
-        regularAttack.performed += RegularAttack;
-        regularAttack.Enable();
+        currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if(sceneName != "Fenn")
+        {
+            canDisable = true;
+            regularAttack = input.Attack.RegularAttack;
+            regularAttack.performed += RegularAttack;
+            regularAttack.Enable();
+        }
 
         interact = input.Interaction.Interact;
         interact.performed += Interact;
+        interact.performed += SubmitPressed;
         interact.Enable();
+
+        questLog = input.Interaction.QuestLogToggle;
+        questLog.performed += QuestLogTogglePressed;
+        questLog.Enable();
+
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement += DisablePlayerMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnablePlayerMovement;
     }
 
     private void OnDisable()
@@ -47,14 +72,12 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
-        regularAttack.Disable();
+        if(canDisable == true)
+            regularAttack.Disable();
         interact.Disable();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisablePlayerMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnablePlayerMovement;
     }
 
     // Update is called once per frame
@@ -77,5 +100,31 @@ public class InputMgr : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
         player.Interact();
+    }
+
+    public void SubmitPressed(InputAction.CallbackContext context)
+    {
+        GameEventsManager.instance.inputEvents.SubmitPressed();
+    }
+
+    private void DisablePlayerMovement() 
+    {
+        move.Disable();
+        cursorPos.Disable();
+        dash.Disable();
+        interact.Disable();
+    }
+
+    private void EnablePlayerMovement() 
+    {
+        move.Enable();
+        cursorPos.Enable();
+        dash.Enable();
+        interact.Enable();
+    }
+
+    public void QuestLogTogglePressed(InputAction.CallbackContext context)
+    {
+        GameEventsManager.instance.inputEvents.QuestLogTogglePressed();
     }
 }

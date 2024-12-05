@@ -175,6 +175,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuestLogToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa44a547-ca94-44b6-8f5e-432881d9d3e1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -186,6 +195,17 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8664a9fc-440b-4868-b8dc-32a3b384dd67"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuestLogToggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -205,6 +225,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         // Interaction
         m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
         m_Interaction_Interact = m_Interaction.FindAction("Interact", throwIfNotFound: true);
+        m_Interaction_QuestLogToggle = m_Interaction.FindAction("QuestLogToggle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -375,11 +396,13 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Interaction;
     private List<IInteractionActions> m_InteractionActionsCallbackInterfaces = new List<IInteractionActions>();
     private readonly InputAction m_Interaction_Interact;
+    private readonly InputAction m_Interaction_QuestLogToggle;
     public struct InteractionActions
     {
         private @GameControls m_Wrapper;
         public InteractionActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Interact => m_Wrapper.m_Interaction_Interact;
+        public InputAction @QuestLogToggle => m_Wrapper.m_Interaction_QuestLogToggle;
         public InputActionMap Get() { return m_Wrapper.m_Interaction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -392,6 +415,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @QuestLogToggle.started += instance.OnQuestLogToggle;
+            @QuestLogToggle.performed += instance.OnQuestLogToggle;
+            @QuestLogToggle.canceled += instance.OnQuestLogToggle;
         }
 
         private void UnregisterCallbacks(IInteractionActions instance)
@@ -399,6 +425,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @QuestLogToggle.started -= instance.OnQuestLogToggle;
+            @QuestLogToggle.performed -= instance.OnQuestLogToggle;
+            @QuestLogToggle.canceled -= instance.OnQuestLogToggle;
         }
 
         public void RemoveCallbacks(IInteractionActions instance)
@@ -429,5 +458,6 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     public interface IInteractionActions
     {
         void OnInteract(InputAction.CallbackContext context);
+        void OnQuestLogToggle(InputAction.CallbackContext context);
     }
 }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6de97e66f6d4afa820270ded733e26f, type: 3}
+  m_Name: Character Controller Basic Motion
+  m_EditorClassIdentifier: 
+  customInput: {fileID: 11400000, guid: 31449a915d799404799cd25c711e1dc7, type: 2}
+  currentMoveInput:
+    x: 0
+    y: 0
+    z: 0
+  currentForward:
+    x: 0
+    y: 0
+    z: 0
+  inputManagerBasicMotion: {fileID: 11400000, guid: a1a25593a51ec7e44bb8765b6c8780d3, type: 2}
+  defaultExcludeLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  actionExcludeLayer:
+    serializedVersion: 2
+    m_Bits: 119

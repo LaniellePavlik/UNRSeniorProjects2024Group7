@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - Enemy
+  - Panel
+  - Pico
   layers:
   - Default
   - TransparentFX
