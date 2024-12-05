@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.Windows;
+using UnityEngine.InputSystem;
+
 
 public class PlayerController : MonoBehaviour
 {
     public Entity playerEnt;
+    public Animator playerAni;
+
 
     public float dashSpeed;
     public float dashDistance;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerEnt = GetComponent<Entity>();
+        playerAni = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,12 +41,22 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer(Vector2 input)
     {
+        // if()
+        // playerAni.SetBool("isrunning", true);
         if (dashing)
             return;
 
         Vector3 moveVector = new Vector3(input.x * Time.deltaTime, 0, input.y * Time.deltaTime) * playerEnt.speed;
 
         transform.position += moveVector;
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        playerAni.SetBool("isrunning", true);
+        // print("run");
+        if (context.canceled)
+            playerAni.SetBool("isrunning", false);
     }
 
     public void ChangeDirection(Vector2 mousePos)
@@ -86,6 +101,8 @@ public class PlayerController : MonoBehaviour
         if(attackCooldown < attackCooldownTimer)
         {
             playerEnt.weapons[0].StartAttack();
+            playerAni.SetTrigger("attack");
+            print("here");
             attackCooldownTimer = 0;
         }
     }

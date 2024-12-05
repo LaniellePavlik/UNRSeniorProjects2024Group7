@@ -9,7 +9,6 @@ public class InputMgr : MonoBehaviour
     public static InputMgr inst;
 
     public PlayerController player;
-
     private GameControls input;
     private InputAction move;
     private InputAction dash;
