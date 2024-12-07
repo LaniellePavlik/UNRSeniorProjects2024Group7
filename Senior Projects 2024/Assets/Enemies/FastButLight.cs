@@ -8,6 +8,7 @@ using UnityEngine.Experimental.AI;
 public class FastButLight : EnemyAI
 {
     public Transform player;
+    public Animator enemyAni;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class FastButLight : EnemyAI
         inBetweenDashes = false;
         dashSpeed = .1f;
         player = PlayerMgr.inst.player.transform;
+        enemyAni.SetBool("isrunning", true);
     }
 
     Vector3 movePosition;
@@ -60,6 +62,7 @@ public class FastButLight : EnemyAI
         dashStartPosiiton = transform.position;
         dashEndPosiiton = player.position + GetRandomPointOnRadius(3);
         dashEndPosiiton.y = dashStartPosiiton.y;
+        enemyAni.SetTrigger("attack");
     }
 
     int dashCounter = 0;
@@ -76,6 +79,7 @@ public class FastButLight : EnemyAI
             this.dashEndPosiiton.y = this.dashStartPosiiton.y;
             inBetweenDashes = true;
             transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
+            enemyAni.SetTrigger("attack");
         }
         if (dashCounter > 3)
         {

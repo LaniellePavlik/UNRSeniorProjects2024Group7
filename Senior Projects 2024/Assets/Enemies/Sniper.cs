@@ -8,12 +8,14 @@ public class Sniper : EnemyAI
     public Transform player;
     public float minRange;
     public float maxRange;
+    public Animator enemyAni;
     // Start is called before the first frame update
     void Start()
     {
         movePosition = Vector3.zero;
         agent = GetComponent<NavMeshAgent>();
         player = PlayerMgr.inst.player.transform;
+        enemyAni.SetBool("Idle", false);
     }
 
 

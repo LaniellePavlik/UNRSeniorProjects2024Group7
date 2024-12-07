@@ -110,8 +110,8 @@ public class PlayerController : MonoBehaviour
         if(attackCooldown < attackCooldownTimer)
         {
             playerEnt.weapons[0].StartAttack();
-            playerAni.SetTrigger("attack");
-            print("here");
+            // playerAni.SetTrigger("attack");
+            // print("here");
             attackCooldownTimer = 0;
         }
     }

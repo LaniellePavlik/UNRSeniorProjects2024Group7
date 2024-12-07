@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2468,6 +2468,7 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 935011894}
   weapons:
   - {fileID: 1118481214}
+  enemyAni: {fileID: 213647291}
 --- !u!65 &213647287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5186,6 +5187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 15
   damageTag: Enemy
+  playerAni: {fileID: 0}
   windUpTime: 0.025
   swingTime: 0.075
 --- !u!136 &468503639
@@ -12007,6 +12009,7 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 935011894}
   weapons:
   - {fileID: 1118481214}
+  enemyAni: {fileID: 0}
 --- !u!1 &1118481212
 GameObject:
   m_ObjectHideFlags: 0
@@ -12056,6 +12059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 15
   damageTag: Enemy
+  playerAni: {fileID: 213647291}
   windUpTime: 0.025
   swingTime: 0.075
 --- !u!136 &1118481215
@@ -13038,6 +13042,7 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 935011894}
   weapons:
   - {fileID: 468503638}
+  enemyAni: {fileID: 0}
 --- !u!65 &1176277879
 BoxCollider:
   m_ObjectHideFlags: 0

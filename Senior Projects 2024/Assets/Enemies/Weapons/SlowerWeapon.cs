@@ -8,6 +8,8 @@ public class SlowerWeapon : Weapon
 
     bool attacking;
     Slower entity;
+    // public Animator enemyAni;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class SlowerWeapon : Weapon
     {
         if (stabbing)
         {
+            // enemyAni.SetTrigger("attack");
             timer += Time.deltaTime;
             float zPosition = Mathf.Lerp(0, entity.orbitRadius, timer / stabTime);
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zPosition);

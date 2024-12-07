@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
     public Slider easeHealthSlider;
     private float lerpSpeed = 0.05f;
     public List<Weapon> weapons;
+    public Animator enemyAni;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,12 @@ public class Entity : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health < 0){
+            enemyAni.SetTrigger("die");
             Destroy(gameObject);
+        }
+        
+        else
+            enemyAni.SetTrigger("damage");
     }
 }
