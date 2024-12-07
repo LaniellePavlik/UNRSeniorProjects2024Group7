@@ -1,0 +1,7 @@
+Manually install the SRP version for your specific use case by double-clicking and importing one of the SRP packages: URP or HDRP.
+
+1 - Make a new URP or HDRP project template using Unity Hub
+2 - Install one of the packages that fits your newly created pipeline located in "The Toby Foliage Engine -> (TTFE)_Core -> Pipelines".
+-------
+
+When you purchase the full version, you can simply replace the main directory upon import and get access to all the features!

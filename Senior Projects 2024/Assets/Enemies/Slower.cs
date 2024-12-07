@@ -7,12 +7,16 @@ public class Slower : EnemyAI
 {
     public Transform player;
     public float orbitRadius;
+        public Animator enemyAni;
+
     // Start is called before the first frame update
     void Start()
     {
         movePosition = Vector3.zero;
         agent = GetComponent<NavMeshAgent>();
         player = PlayerMgr.inst.player.transform;
+        enemyAni.SetBool("isrunning", true);
+
     }
 
 
@@ -32,6 +36,7 @@ public class Slower : EnemyAI
 
         if (Vector3.Distance(transform.position, player.position) < orbitRadius+2 && attackCooldown > 5)
         {
+            enemyAni.SetTrigger("attack");
             entity.weapons[0].StartAttack();
             attackCooldown = 0;
         }

@@ -10,6 +10,8 @@ public class AOE : EnemyAI
     public float AOEMinStopTime;
     public float AOEMaxMoveTime;
     public float AOEMinMoveTime;
+    public Animator enemyAni;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class AOE : EnemyAI
 
         moveTime = Random.Range(minMoveTime, maxMoveTime);
         stopTime = Random.Range(minStopTime, maxStopTime);
+        enemyAni.SetBool("Idle", false);
+
     }
 
     public float attackCooldown = 0;

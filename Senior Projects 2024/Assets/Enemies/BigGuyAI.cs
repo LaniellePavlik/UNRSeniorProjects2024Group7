@@ -11,6 +11,7 @@ public class BigGuyAI : EnemyAI
     public float BGMinStopTime;
     public float BGMaxMoveTime;
     public float BGMinMoveTime;
+    public Animator enemyAni;
 
 
     public float attackCooldown = 0;
@@ -41,6 +42,7 @@ public class BigGuyAI : EnemyAI
         {
             Debug.Log("started");
             entity.weapons[0].StartAttack();
+            enemyAni.SetTrigger("attack");
             attackCooldown = 0;
         }
     }

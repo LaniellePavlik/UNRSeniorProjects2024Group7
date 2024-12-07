@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BigGuyWeapon : Weapon
 {
+    public Animator playerAni;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class BigGuyWeapon : Weapon
     {
         attacking = true;
         windUp = true;
+        playerAni.SetTrigger("attack");
     }
 
     bool windUp;

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.Windows;
+using UnityEngine.InputSystem;
+
 
 public class PlayerController : MonoBehaviour
 {
     public Entity playerEnt;
+    public Animator playerAni;
+
 
     public float dashSpeed;
     public float dashDistance;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerEnt = GetComponent<Entity>();
+        playerAni = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +41,25 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer(Vector2 input)
     {
+        if (input.x >=.5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.x <= -.5)
+            playerAni.SetBool("isbackwards", true);
+
+        if (input.y >= .5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.y <= -.5)
+            playerAni.SetBool("isrunning", true);
+
+        if (input.y == 0 && input.x == 0)
+        {
+            playerAni.SetBool("isrunning", false);
+            playerAni.SetBool("isbackwards", false);
+        }
+
+        // playerAni.SetBool("isrunning", true);
         if (dashing)
             return;
 
@@ -86,6 +110,8 @@ public class PlayerController : MonoBehaviour
         if(attackCooldown < attackCooldownTimer)
         {
             playerEnt.weapons[0].StartAttack();
+            // playerAni.SetTrigger("attack");
+            // print("here");
             attackCooldownTimer = 0;
         }
     }
