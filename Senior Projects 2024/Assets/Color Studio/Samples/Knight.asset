@@ -1,0 +1,921 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1057cfb40ba4912a4231161e958ae2, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  order: 0
+  hueCount: 4
+  shades: 1
+  saturation: 0.85
+  minBrightness: 0
+  maxBrightness: 1
+  kelvin: 4000
+  colorTempStrength: 0
+  splitAmount: 0.6
+  scheme: 10
+  keyColors:
+  - angle: 0
+    hue: 0
+    color: {r: 0.925, g: 0.07499999, b: 0.07499999, a: 1}
+    pos: {x: 0.15, y: 0.5}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0
+    hue: 0
+    color: {r: 0.03137255, g: 0.015686275, b: 0.015686275, a: 1}
+    pos: {x: 0.15, y: 0.5}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0
+    hue: 0
+    color: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 1}
+    pos: {x: 0.15, y: 0.5}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0
+    hue: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    pos: {x: 0, y: 0}
+    visible: 0
+    highlighted: 0
+    type: 0
+  - angle: 0.29224116
+    hue: 0.046511624
+    color: {r: 0.3529412, g: 0.10980392, b: 0.015686275, a: 1}
+    pos: {x: 0.1648398, y: 0.39916533}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.3351032
+    hue: 0.05333333
+    color: {r: 0.49411765, g: 0.22745098, b: 0.101960786, a: 1}
+    pos: {x: 0.16946828, y: 0.3848967}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.34906566
+    hue: 0.055555522
+    color: {r: 0.25882354, g: 0.24313726, b: 0.23529412, a: 1}
+    pos: {x: 0.17110758, y: 0.380293}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.37088245
+    hue: 0.059027776
+    color: {r: 0.6313726, g: 0.26666668, b: 0.06666667, a: 1}
+    pos: {x: 0.17379726, y: 0.37314668}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.44092524
+    hue: 0.07017543
+    color: {r: 0.627451, g: 0.49803922, b: 0.40392157, a: 1}
+    pos: {x: 0.18347499, y: 0.35062826}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.45110056
+    hue: 0.07179488
+    color: {r: 0.43529412, g: 0.2901961, b: 0.18039216, a: 1}
+    pos: {x: 0.18501125, y: 0.3474153}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.45219895
+    hue: 0.071969695
+    color: {r: 0.6313726, g: 0.43529412, b: 0.28627452, a: 1}
+    pos: {x: 0.18517905, y: 0.3470694}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.4614769
+    hue: 0.073446326
+    color: {r: 0.61960787, g: 0.36078432, b: 0.15686275, a: 1}
+    pos: {x: 0.18661144, y: 0.34415516}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.48171094
+    hue: 0.076666676
+    color: {r: 0.92941177, g: 0.6117647, b: 0.34117648, a: 1}
+    pos: {x: 0.18982877, y: 0.33784637}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.5094475
+    hue: 0.081081085
+    color: {r: 0.68235296, g: 0.60784316, b: 0.5372549, a: 1}
+    pos: {x: 0.19444507, y: 0.32930675}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.5235988
+    hue: 0.083333336
+    color: {r: 0.62352943, g: 0.36078432, b: 0.09803922, a: 1}
+    pos: {x: 0.19689111, y: 0.325}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.54523504
+    hue: 0.08677685
+    color: {r: 0.63529414, g: 0.40784314, b: 0.16078432, a: 1}
+    pos: {x: 0.2007481, y: 0.31848332}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.5526876
+    hue: 0.08796296
+    color: {r: 0.7921569, g: 0.7254902, b: 0.6509804, a: 1}
+    pos: {x: 0.20210917, y: 0.31625822}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.5890487
+    hue: 0.09375001
+    color: {r: 0.38431373, g: 0.27450982, b: 0.13333334, a: 1}
+    pos: {x: 0.20898564, y: 0.3055504}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.60627234
+    hue: 0.09649124
+    color: {r: 0.23529412, g: 0.17254902, b: 0.08627451, a: 1}
+    pos: {x: 0.21237779, y: 0.30056715}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.6374246
+    hue: 0.10144927
+    color: {r: 0.15294118, g: 0.11764706, b: 0.0627451, a: 1}
+    pos: {x: 0.21872911, y: 0.29170528}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.64858687
+    hue: 0.103225805
+    color: {r: 0.8745098, g: 0.6431373, b: 0.26666668, a: 1}
+    pos: {x: 0.22107162, y: 0.28857872}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.6663985
+    hue: 0.10606062
+    color: {r: 0.08627451, g: 0.07058824, b: 0.043137256, a: 1}
+    pos: {x: 0.22488144, y: 0.28364435}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.69813174
+    hue: 0.11111111
+    color: {r: 0.49019608, g: 0.36862746, b: 0.1254902, a: 1}
+    pos: {x: 0.23188445, y: 0.27502432}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.69813174
+    hue: 0.11111111
+    color: {r: 0.047058824, g: 0.043137256, b: 0.03529412, a: 1}
+    pos: {x: 0.23188445, y: 0.27502432}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.7016756
+    hue: 0.111675136
+    color: {r: 0.8627451, g: 0.60784316, b: 0.09019608, a: 1}
+    pos: {x: 0.23268344, y: 0.2740756}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.7139984
+    hue: 0.11363637
+    color: {r: 0.24705882, g: 0.21960784, b: 0.16078432, a: 1}
+    pos: {x: 0.23548767, y: 0.2707987}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.7184263
+    hue: 0.11434109
+    color: {r: 0.62352943, g: 0.5176471, b: 0.28627452, a: 1}
+    pos: {x: 0.23650514, y: 0.26962975}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.7431725
+    hue: 0.11827958
+    color: {r: 0.4509804, g: 0.38039216, b: 0.20784314, a: 1}
+    pos: {x: 0.24228604, y: 0.26318043}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.83533674
+    hue: 0.13294797
+    color: {r: 0.9647059, g: 0.827451, b: 0.28627452, a: 1}
+    pos: {x: 0.2651752, y: 0.24046713}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.9239977
+    hue: 0.1470588
+    color: {r: 0.50980395, g: 0.49411765, b: 0.3764706, a: 1}
+    pos: {x: 0.28907785, y: 0.220694}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 0.94034064
+    hue: 0.14965986
+    color: {r: 0.9098039, g: 0.87058824, b: 0.5254902, a: 1}
+    pos: {x: 0.2936705, y: 0.21728437}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 0.94247776
+    hue: 0.14999999
+    color: {r: 0.61960787, g: 0.6156863, b: 0.5803922, a: 1}
+    pos: {x: 0.29427513, y: 0.21684405}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 1.0095737
+    hue: 0.16067864
+    color: {r: 0.98039216, g: 0.95686275, b: 0.3254902, a: 1}
+    pos: {x: 0.31372243, y: 0.20368823}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 1.2836615
+    hue: 0.20430107
+    color: {r: 0.27058825, g: 0.29803923, b: 0.1764706, a: 1}
+    pos: {x: 0.40087807, y: 0.16432928}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 1.9198622
+    hue: 0.30555555
+    color: {r: 0.16078432, g: 0.23921569, b: 0.14509805, a: 1}
+    pos: {x: 0.61970705, y: 0.17110759}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 2.0327954
+    hue: 0.32352942
+    color: {r: 0.17254902, g: 0.29803923, b: 0.16470589, a: 1}
+    pos: {x: 0.6560085, y: 0.18669288}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 2.5598161
+    hue: 0.40740737
+    color: {r: 0.21568628, g: 0.2509804, b: 0.23137255, a: 1}
+    pos: {x: 0.7924207, y: 0.30767184}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 2.7488937
+    hue: 0.4375
+    color: {r: 0.078431375, g: 0.10980392, b: 0.09803922, a: 1}
+    pos: {x: 0.8233579, y: 0.36606085}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 2.792527
+    hue: 0.44444445
+    color: {r: 0.78039217, g: 0.8509804, b: 0.827451, a: 1}
+    pos: {x: 0.8288924, y: 0.380293}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 2.8559935
+    hue: 0.45454547
+    color: {r: 0.12941177, g: 0.17254902, b: 0.16078432, a: 1}
+    pos: {x: 0.8358226, y: 0.40139368}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 2.8797934
+    hue: 0.45833334
+    color: {r: 0.015686275, g: 0.047058824, b: 0.039215688, a: 1}
+    pos: {x: 0.838074, y: 0.40941337}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.0252373
+    hue: 0.48148146
+    color: {r: 0.043137256, g: 0.078431375, b: 0.07450981, a: 1}
+    pos: {x: 0.8476334, y: 0.45936745}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.1415927
+    hue: 0.5
+    color: {r: 0.07499999, g: 0.925, b: 0.925, a: 1}
+    pos: {x: 0.85, y: 0.50000006}
+    visible: 0
+    highlighted: 0
+    type: 1
+  - angle: 3.4033923
+    hue: 0.5416667
+    color: {r: 0.29803923, g: 0.32156864, b: 0.32941177, a: 1}
+    pos: {x: 0.838074, y: 0.5905868}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.4033923
+    hue: 0.5416667
+    color: {r: 0.5803922, g: 0.6745098, b: 0.7058824, a: 1}
+    pos: {x: 0.838074, y: 0.5905868}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 3.4557521
+    hue: 0.55
+    color: {r: 0.07450981, g: 0.12941177, b: 0.15294118, a: 1}
+    pos: {x: 0.83286977, y: 0.608156}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.476696
+    hue: 0.55333334
+    color: {r: 0.32941177, g: 0.39607844, b: 0.42745098, a: 1}
+    pos: {x: 0.8305317, y: 0.61510336}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.517003
+    hue: 0.5597484
+    color: {r: 0.015686275, g: 0.14901961, b: 0.22352941, a: 1}
+    pos: {x: 0.825625, y: 0.62832904}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.5223918
+    hue: 0.56060606
+    color: {r: 0.17254902, g: 0.2, b: 0.21568628, a: 1}
+    pos: {x: 0.82492876, y: 0.6300819}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.5342917
+    hue: 0.5625
+    color: {r: 0.101960786, g: 0.18039216, b: 0.22745098, a: 1}
+    pos: {x: 0.8233578, y: 0.6339392}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.5654583
+    hue: 0.5674603
+    color: {r: 0.047058824, g: 0.14509805, b: 0.21176471, a: 1}
+    pos: {x: 0.81902707, y: 0.64395046}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.5903919
+    hue: 0.5714286
+    color: {r: 0.17254902, g: 0.36078432, b: 0.5019608, a: 1}
+    pos: {x: 0.815339, y: 0.6518594}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.607014
+    hue: 0.5740741
+    color: {r: 0.43529412, g: 0.6117647, b: 0.7529412, a: 1}
+    pos: {x: 0.8127714, y: 0.65707976}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.6249146
+    hue: 0.5769231
+    color: {r: 0.17254902, g: 0.28235295, b: 0.3764706, a: 1}
+    pos: {x: 0.8099096, y: 0.6626531}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.6582103
+    hue: 0.5822222
+    color: {r: 0.32941177, g: 0.47843137, b: 0.62352943, a: 1}
+    pos: {x: 0.8043232, y: 0.6728797}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.6651914
+    hue: 0.5833333
+    color: {r: 0.45490196, g: 0.54901963, b: 0.6431373, a: 1}
+    pos: {x: 0.8031089, y: 0.675}
+    visible: 0
+    highlighted: 0
+    type: 2
+  - angle: 3.6959915
+    hue: 0.5882353
+    color: {r: 0.043137256, g: 0.07450981, b: 0.10980392, a: 1}
+    pos: {x: 0.79757595, y: 0.6842513}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.7399914
+    hue: 0.5952381
+    color: {r: 0.2509804, g: 0.39215687, b: 0.5803922, a: 1}
+    pos: {x: 0.78918356, y: 0.6971621}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.769911
+    hue: 0.59999996
+    color: {r: 0.047058824, g: 0.10980392, b: 0.20392157, a: 1}
+    pos: {x: 0.783156, y: 0.7057248}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 3.786022
+    hue: 0.6025641
+    color: {r: 0.02745098, g: 0.047058824, b: 0.078431375, a: 1}
+    pos: {x: 0.77980494, y: 0.7102598}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 4.1887903
+    hue: 0.6666667
+    color: {r: 0.015686275, g: 0.015686275, b: 0.047058824, a: 1}
+    pos: {x: 0.67499995, y: 0.80310893}
+    visible: 1
+    highlighted: 0
+    type: 2
+  - angle: 5.7903867
+    hue: 0.92156863
+    color: {r: 0.49019608, g: 0.42352942, b: 0.45490196, a: 1}
+    pos: {x: 0.1916457, y: 0.66558266}
+    visible: 0
+    highlighted: 0
+    type: 2
