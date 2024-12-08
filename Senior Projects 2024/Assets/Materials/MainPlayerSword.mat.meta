@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Senior Projects 2024/Assets/Materials/MainPlayerSword.mat.meta
 guid: 4da2d58f4e59cce4c9105c907dc8f1f0
+========
+guid: 7209075f7b340b546b82e918a81adcaa
+>>>>>>>> origin/collider-fixes:Senior Projects 2024/Assets/Advance Studios/Medieval Castle/Art/Materials/DoorsWindowsTexture.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

@@ -31,6 +31,7 @@ public class PlayerMgr : MonoBehaviour
     {
         speed *= multiplier;
         yield return new WaitForSeconds(timeSlowed);
-        speed /= multiplier;
+        Debug.Log("slow over");
+        speed = baseSpeed;
     }
 }

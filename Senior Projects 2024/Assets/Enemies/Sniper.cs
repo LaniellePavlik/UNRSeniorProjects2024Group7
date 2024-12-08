@@ -39,5 +39,10 @@ public class Sniper : EnemyAI
             entity.weapons[0].StartAttack();
             attackCooldown = 0;
         }
+
+        if (agent.isStopped)
+            enemyAni.SetBool("Idle", true);
+        else
+            enemyAni.SetBool("Idle", false);
     }
 }

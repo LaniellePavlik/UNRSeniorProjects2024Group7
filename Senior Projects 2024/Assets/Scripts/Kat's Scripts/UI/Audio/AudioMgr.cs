@@ -8,6 +8,7 @@ public class AudioMgr : MonoBehaviour
     public static AudioMgr Instance;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
+    public int level;
 
     public void Awake()
     {
@@ -24,7 +25,10 @@ public class AudioMgr : MonoBehaviour
 
     public void Start()
     {
-        PlayMusic("Library");
+        if (level == 0)
+            PlayMusic("Library");
+        else if (level == 1)
+            PlayMusic("BookOne");
     }
     public void PlayMusic(string name)
     {
@@ -48,6 +52,20 @@ public class AudioMgr : MonoBehaviour
         }
         else
         {
+            sfxSource.PlayOneShot(s.clip);
+        }
+    }
+
+    public void PlaySFX(string name, AudioSource source)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            source.clip = s.clip;
             sfxSource.PlayOneShot(s.clip);
         }
     }

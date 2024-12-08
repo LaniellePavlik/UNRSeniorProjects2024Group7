@@ -18,7 +18,6 @@ public class InputMgr : MonoBehaviour
     private InputAction questLog;
     private Scene currentScene;
     private bool canDisable = false;
-    public bool inLibrary = false;
 
     public void Awake()
     {
@@ -46,13 +45,13 @@ public class InputMgr : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        // if(sceneName != "Fenn" || sceneName != "Kat")
-        // {
-        canDisable = true;
-        regularAttack = input.Attack.RegularAttack;
-        regularAttack.performed += RegularAttack;
-        regularAttack.Enable();
-        // }
+        if(sceneName != "Fenn")
+        {
+            canDisable = true;
+            regularAttack = input.Attack.RegularAttack;
+            regularAttack.performed += RegularAttack;
+            regularAttack.Enable();
+        }
 
         interact = input.Interaction.Interact;
         interact.performed += Interact;
@@ -72,8 +71,8 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
-        // if(canDisable == true)
-        regularAttack.Disable();
+        if(canDisable == true)
+            regularAttack.Disable();
         interact.Disable();
         
         GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisablePlayerMovement;
@@ -83,21 +82,18 @@ public class InputMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(move.ReadValue<Vector2>());
         player.MovePlayer(move.ReadValue<Vector2>());
         player.ChangeDirection(cursorPos.ReadValue<Vector2>());
     }
 
     private void StartDash(InputAction.CallbackContext context)
     {
-        if(inLibrary == false)
-            player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
+        player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
     }
 
     private void RegularAttack(InputAction.CallbackContext context)
     {
-        if(inLibrary == false)
-            player.StartAttack();
+        player.StartAttack();
     }
 
     private void Interact(InputAction.CallbackContext context)
