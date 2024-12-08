@@ -279,6 +279,9 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyAni: {fileID: 3880779364090346264}
   dashSound: {fileID: 8317136201003917611}
+  dashing: 0
+  minRange: 3
+  maxRange: 5
   dashCoolDownTimer: 0
 --- !u!195 &4081787473886709338
 NavMeshAgent:
@@ -331,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 8539305552144888719}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0.54}
+  m_LocalPosition: {x: 0, y: -0.735, z: 0.761}
   m_LocalScale: {x: 0.29999998, y: 1, z: 0.29999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,8 +425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c2dad2eb278f54fb1297abd59d4bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 10
+  baseDamage: 20
   damageTag: Player
+  enemy: {fileID: 3535678099388140117}
 --- !u!1001 &256673383450230977
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DashWeapon : Weapon
 {
     // Start is called before the first frame update
+    public FastButLight enemy;
     void Start()
     {
         
