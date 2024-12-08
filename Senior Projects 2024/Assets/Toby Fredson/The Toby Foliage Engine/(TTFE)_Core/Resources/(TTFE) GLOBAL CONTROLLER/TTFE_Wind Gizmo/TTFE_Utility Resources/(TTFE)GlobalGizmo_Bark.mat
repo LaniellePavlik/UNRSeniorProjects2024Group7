@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _WINDTYPE_GENTLEBREEZE
   - _WINDTYPE_STRONGWIND
   m_InvalidKeywords:
   - _AO_ON

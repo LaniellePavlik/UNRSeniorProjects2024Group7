@@ -72,7 +72,7 @@ public class SlowerWeapon : Weapon
             if (!hitThisStab && stabbing)
             {
                 collider.GetComponent<Entity>().TakeDamage(baseDamage);
-                StartCoroutine(PlayerMgr.inst.SlowDown(0.5f, 5));
+                //StartCoroutine(PlayerMgr.inst.SlowDown(0.5f, 5));
                 hitThisStab = true;
             }
         }
