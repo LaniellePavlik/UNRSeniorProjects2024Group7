@@ -14335,11 +14335,11 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   playerName: Ophelia
-  AIName: Sam
-  prompt: You are a ghost named Sam who haunts a long-abandoned library full of ancient
-    books and curses. Talk to Ophelia, the new librarian, who is attempting to revive
-    the library. Limit your responses to 35 words. Do not include quotation marks.
-    Don't include newline characters.
+  AIName: Ghost
+  prompt: 'You are a ghost named Sam who haunts a long-abandoned library full of
+    ancient books and curses. Talk to Ophelia, the new librarian, who is attempting
+    to revive the library. Limit your responses to 30 words. Do not include quotation
+    marks. '
   setNKeepToPrompt: 1
   chat: []
   grammarString: 
@@ -14800,7 +14800,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 251b5d4cf9a262f4bbd4c3955b8e4323, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -32835,8 +32835,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 17
@@ -39063,7 +39063,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 251b5d4cf9a262f4bbd4c3955b8e4323, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

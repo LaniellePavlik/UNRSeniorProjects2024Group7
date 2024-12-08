@@ -32,7 +32,6 @@ public class Dialogue : MonoBehaviour
             count++;
             if (count==5)
             {
-                Debug.Log("!!!");
                 textbox.isVisible = false;
                 textComponent.text = string.Empty;
                 GameEventsManager.instance.playerEvents.EnablePlayerMovement();
