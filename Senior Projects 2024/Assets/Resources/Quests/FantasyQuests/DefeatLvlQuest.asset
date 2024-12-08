@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DefeatLvlQuest
   m_EditorClassIdentifier: 
   <id>k__BackingField: DefeatLvlQuest
-  displayName: Save the Princess!
-  questPrerecs: []
-  questStepPrefabs: []
+  displayName: Lift the book curse!
+  questPrerecs:
+  - {fileID: 11400000, guid: f34c28abbcd3b754bbf6f0079208fc7d, type: 2}
+  questStepPrefabs:
+  - {fileID: 2343748559182472329, guid: b9e1a2b7e3005f549b43c2a60abf49e3, type: 3}
   goldReward: 0

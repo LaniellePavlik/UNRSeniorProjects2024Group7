@@ -65,6 +65,18 @@ public class PanelMover : MonoBehaviour
         panel.anchoredPosition = visiblePosition;
     }
 
+    public void pauseTime()
+    {
+        GameEventsManager.instance.playerEvents.DisablePlayerMovement();
+        Time.timeScale = 0;
+    }
+
+    public void startTime()
+    {
+        GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+        Time.timeScale = 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

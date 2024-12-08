@@ -9,6 +9,7 @@ public class TalkToPatronQuestStep : QuestStep
    int speakingGoal = 1;
    bool GhostSpoken = false;
 
+
     private void Start()
     {
         UpdateState();
@@ -28,16 +29,13 @@ public class TalkToPatronQuestStep : QuestStep
     {
         if (patronsSpokenTo >= speakingGoal)
         {
-            if(GhostSpoken == true)
-                FinishQuestStep();
-
-            GhostSpoken = true;
+            FinishQuestStep();
         }
         if (patronsSpokenTo < speakingGoal)
         {
             patronsSpokenTo++;
-            UpdateState();
-            
+            UpdateState(); 
+            FinishQuestStep();
         }
     }
 

@@ -72,8 +72,8 @@ public class InputMgr : MonoBehaviour
         move.Disable();
         cursorPos.Disable();
         dash.Disable();
-        if(canDisable == true)
-            regularAttack.Disable();
+        // if(canDisable == true)
+        regularAttack.Disable();
         interact.Disable();
         
         GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisablePlayerMovement;

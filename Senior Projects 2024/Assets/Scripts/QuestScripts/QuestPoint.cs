@@ -18,9 +18,12 @@ public class QuestPoint : MonoBehaviour
     Dialogue script;
     private bool playerIsNear = false;
     private string questId;
-    private QuestState currentQuestState;
+    [HideInInspector] public QuestState currentQuestState;
 
     private QuestIcon questIcon;
+
+    public List<string> entryLines;
+    public List<string> endingLines;
 
     private void Awake()
     {
@@ -49,17 +52,25 @@ public class QuestPoint : MonoBehaviour
         {
             return;
         }
+        print(currentQuestState);
 
-        dialogue.isVisible = true;
-        script.StartDialogue();
-
-        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+        if (currentQuestState != QuestState.CAN_START && currentQuestState != QuestState.CAN_FINISH)
         {
-            GameEventsManager.instance.questEvents.StartQuest(questId);
+            // dialogue.isVisible = true;
+            script.StartDialogue();
         }
+
         else if (currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
         {
+            // dialogue.isVisible = true;
+            script.EndQuestDialogue(endingLines);
             GameEventsManager.instance.questEvents.FinishQuest(questId);
+        }
+        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
+        {
+            // dialogue.isVisible = true;
+            script.StartQuestDialogue(entryLines);
+            GameEventsManager.instance.questEvents.StartQuest(questId);
         }
     }
 

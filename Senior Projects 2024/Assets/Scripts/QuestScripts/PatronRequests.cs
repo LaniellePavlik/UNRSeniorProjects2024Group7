@@ -18,6 +18,7 @@ public class PatronRequests : ScriptableObject
 
     [Header("Rewards")]
     public int goldReward;
+    
 
     //Quest steps are broken into pieces we need to do consecutively, not things that can all be done at the same time 
     GameObject[] questSteps;

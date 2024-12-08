@@ -42,7 +42,6 @@ public class QuestLogNormalUI : MonoBehaviour
         {
             if(quest.state != QuestState.REQUIREMENTS_NOT_MET && quest.state != QuestState.CAN_START)
             {
-                print(quest.state);
                 questPrefab = InstantiateDisplayPrefab(quest);
             }
         }
