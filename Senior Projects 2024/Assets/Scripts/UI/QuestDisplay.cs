@@ -40,7 +40,11 @@ public class QuestLogNormalUI : MonoBehaviour
         // only create the questDisplay if we haven't seen this quest id before
         if (!idToQuestMap.ContainsKey(quest.info.id))
         {
-            questPrefab = InstantiateDisplayPrefab(quest);
+            if(quest.state != QuestState.REQUIREMENTS_NOT_MET && quest.state != QuestState.CAN_START)
+            {
+                print(quest.state);
+                questPrefab = InstantiateDisplayPrefab(quest);
+            }
         }
         else 
         {
@@ -78,7 +82,9 @@ public class QuestLogNormalUI : MonoBehaviour
         foreach(KeyValuePair<string, QuestDisplayPrefab> entry in idToQuestMap)
         {
             if(entry.Key == quest.info.id)
+            {
                 entry.Value.UpdateDisplay(quest.info.displayName, quest.GetFullStatusText());
+            }
         }
         updateLayout();
     }

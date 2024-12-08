@@ -45,7 +45,7 @@ public class InputMgr : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if(sceneName != "Fenn")
+        if(sceneName != "Fenn" || sceneName != "Kat")
         {
             canDisable = true;
             regularAttack = input.Attack.RegularAttack;
@@ -82,7 +82,7 @@ public class InputMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(move.ReadValue<Vector2>());
+        // Debug.Log(move.ReadValue<Vector2>());
         player.MovePlayer(move.ReadValue<Vector2>());
         player.ChangeDirection(cursorPos.ReadValue<Vector2>());
     }

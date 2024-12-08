@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _LEAFFLUTTER_ON
-  - _WINDTYPE_WINDOFF
+  - _WINDTYPE_GENTLEBREEZE
   m_InvalidKeywords:
   - GentleBreeze
   - _DIRECTIONALWIND_ON
