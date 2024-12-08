@@ -4,84 +4,80 @@ using UnityEngine;
 using TMPro;
 using TMPro.Examples;
 using LLMUnitySamples;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public string[] lines;
     public float textSpeed;
     public PanelMover textbox;
+    public LLMInteraction LLM;
+    public InputField playerText;
+    public NPCController npc;
 
-    private int index;
     private int count;
+    private bool willingToTalk; //get this from NPCs
 
-    // Start is called before the first frame update
     void Start()
     {
-        textComponent.text = string.Empty;
         count = 0;
+        willingToTalk = true;
+        playerText.onSubmit.AddListener(onInputFieldSubmit);
+        playerText.Select();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
             count++;
-            //if (textComponent.text == lines[index])
-            //{
-            //    NextLine();
-            //}
-            //else
-            //{
-            //    StopAllCoroutines();
-            //    textComponent.text = lines[index];
-            //}
-
-            if (count > 2)
+            if (count==5)
             {
                 textbox.isVisible = false;
+                textComponent.text = string.Empty;
                 GameEventsManager.instance.playerEvents.EnablePlayerMovement();
                 count = 0;
+                willingToTalk = true;
             }
+
         }
     }
 
     public void StartDialogue()
     {
-        //to do: figure out what following line does
         GameEventsManager.instance.miscEvents.PatronTalked();
-        //textComponent.text = string.Empty;
-        index = 0;
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
-        //StartCoroutine(TypeLine());
-        // for(int i = 0; i < lines.Length; i++)
-        //     NextLine();
+        playerText.text = "";
+        LLM.welcome(AIReplyComplete);
     }
 
-    IEnumerator TypeLine()
+    public void onInputFieldSubmit(string message)
     {
-        foreach (char c in lines[index].ToCharArray())
-        {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-    }
-
-    void NextLine()
-    {
-
-        if (index < lines.Length - 1)
-        {
-            index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
+        playerText.interactable = false;
+        if (count > 2)
+        {   
+            playerText.text = "The Ghost seems busy. Use 'enter' to exit.";
+            willingToTalk = false;
+            LLM.EndConversation(message, AIReplyComplete);
         }
         else
         {
-            textbox.isVisible = false;
-            GameEventsManager.instance.playerEvents.EnablePlayerMovement();
+            LLM.getResponse(message, AIReplyComplete);
         }
     }
 
+    public void AIReplyComplete()
+    {
+        if (willingToTalk)
+        {
+            playerText.text = "";
+            playerText.interactable = true;
+            playerText.Select();
+        }
+        else
+        {
+            Debug.Log("!!!");
+            npc.changeRelationshipScore(LLM.getRating());
+        }
+    }
 }
