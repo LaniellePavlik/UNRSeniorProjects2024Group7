@@ -2882,7 +2882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   llmCharacter: {fileID: 681187262}
-  playerText: {fileID: 1886609635}
   AIText: {fileID: 1466481660}
 --- !u!1001 &137938786
 PrefabInstance:
@@ -14281,6 +14280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 681187263}
   - component: {fileID: 681187262}
+  - component: {fileID: 681187264}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -14339,7 +14339,7 @@ MonoBehaviour:
   AIName: Ghost
   prompt: 'You are a ghost named Sam who haunts a long-abandoned library full of
     ancient books and curses. Talk to Ophelia, the new librarian, who is attempting
-    to revive the library. Limit your responses to 25 words. Do not include quotation
+    to revive the library. Limit your responses to 30 words. Do not include quotation
     marks. '
   setNKeepToPrompt: 1
   chat: []
@@ -14359,6 +14359,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681187264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681187261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4baa814721f926418a06dfcaefb114b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {x: 0, y: 0, z: 0}
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!1001 &681829763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14801,7 +14816,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 251b5d4cf9a262f4bbd4c3955b8e4323, type: 3}
-    m_FontSize: 36
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -16404,6 +16419,9 @@ MonoBehaviour:
   textComponent: {fileID: 1466481660}
   textSpeed: 0.05
   textbox: {fileID: 762290649}
+  LLM: {fileID: 136050616}
+  playerText: {fileID: 1886609635}
+  npc: {fileID: 681187264}
 --- !u!114 &762290649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28871,7 +28889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &1283514734
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -32834,8 +32853,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 17
@@ -39062,7 +39081,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 251b5d4cf9a262f4bbd4c3955b8e4323, type: 3}
-    m_FontSize: 36
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -47812,7 +47831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &2067905307
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50042,7 +50062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2433331968189683100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50056,7 +50076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &2433331968189683101
 SphereCollider:
   m_ObjectHideFlags: 0
