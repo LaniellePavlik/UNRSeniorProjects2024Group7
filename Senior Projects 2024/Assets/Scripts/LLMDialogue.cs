@@ -10,6 +10,7 @@ public class LLMInteraction : MonoBehaviour
     public LLMCharacter llmCharacter;
     public TMPro.TextMeshProUGUI AIText;
     private int count;
+    private int rating;
 
     void Start()
     {
@@ -47,13 +48,13 @@ public class LLMInteraction : MonoBehaviour
     public void SetAIText(string text)
     {
         AIText.text = text;
-        //Debug.Log(text);
     }
 
     //added for debugging purposes - LLMCharacter.Chat() requires callback functions
-    public void PrintAIText(string text)
+    public void setRatingVar(string text)
     {
-        Debug.Log(text);
+        Debug.Log("LLM: "+text);
+        int.TryParse(text, out rating);
     }
 
     public void SetAIGoodbyeText(string text)
@@ -65,9 +66,17 @@ public class LLMInteraction : MonoBehaviour
     {
         //_ = llmCharacter.Chat("respond to the following: \""+text+"\" and say goodbye to Ophelia.",
         //    SetAIText, AIReplyComplete);
-        _ = llmCharacter.Chat(text, SetAIGoodbyeText, callback);//todo: move setAItext, etc. to Dialogue
-        //_ = llmCharacter.Chat("Rate the pleasantness of this conversation on a scale from 1 to 10. " +
-        //    "Respond with only the number.", PrintAIText, null, false);
+        _ = llmCharacter.Chat(text, SetAIGoodbyeText, null);//todo: move setAItext, etc. to Dialogue
+        _ = llmCharacter.Chat("Rate the pleasantness of this conversation on a scale from 1 to 10. " +
+            "Respond with only the number.", setRatingVar, callback, false);
+    }
+
+    public int getRating()
+    {
+        int r = rating;
+        rating = 0;
+        return r-5;
+
     }
 
     //public void AIReplyComplete()

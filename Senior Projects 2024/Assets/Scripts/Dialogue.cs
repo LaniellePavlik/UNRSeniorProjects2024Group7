@@ -13,6 +13,7 @@ public class Dialogue : MonoBehaviour
     public PanelMover textbox;
     public LLMInteraction LLM;
     public InputField playerText;
+    public NPCController npc;
 
     private int count;
     private bool willingToTalk; //get this from NPCs
@@ -72,6 +73,11 @@ public class Dialogue : MonoBehaviour
             playerText.text = "";
             playerText.interactable = true;
             playerText.Select();
+        }
+        else
+        {
+            Debug.Log("!!!");
+            npc.changeRelationshipScore(LLM.getRating());
         }
     }
 }

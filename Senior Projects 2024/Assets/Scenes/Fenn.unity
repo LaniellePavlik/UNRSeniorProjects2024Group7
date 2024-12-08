@@ -14280,8 +14280,9 @@ GameObject:
   m_Component:
   - component: {fileID: 681187263}
   - component: {fileID: 681187262}
+  - component: {fileID: 681187264}
   m_Layer: 0
-  m_Name: GhostLLM
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14358,6 +14359,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681187264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681187261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4baa814721f926418a06dfcaefb114b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {x: 0, y: 0, z: 0}
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!1001 &681829763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16405,6 +16421,7 @@ MonoBehaviour:
   textbox: {fileID: 762290649}
   LLM: {fileID: 136050616}
   playerText: {fileID: 1886609635}
+  npc: {fileID: 681187264}
 --- !u!114 &762290649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28872,7 +28889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &1283514734
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -47813,7 +47831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &2067905307
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50057,7 +50076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  relationshipStatus: 50
+  relationshipScore: 0
+  scoreSavingFile: 
 --- !u!135 &2433331968189683101
 SphereCollider:
   m_ObjectHideFlags: 0
