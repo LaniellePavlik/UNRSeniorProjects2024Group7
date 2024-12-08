@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     public Entity playerEnt;
     public Animator playerAni;
+    public AudioSource dashSound;
 
 
     public float dashSpeed;
@@ -82,7 +83,8 @@ public class PlayerController : MonoBehaviour
 
     public void StartDash(Vector2 mousePos, Vector2 moveInput)
     {
-        if(dashCooldown < dashCooldownTimer)
+        AudioMgr.Instance.PlaySFX("Dash", dashSound);
+        if (dashCooldown < dashCooldownTimer)
         {
             Vector3 dashDirection;
             if (moveInput != Vector2.zero)

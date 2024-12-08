@@ -38,6 +38,8 @@ public class BigGuyAI : EnemyAI
 
         attackCooldown += Time.deltaTime;
 
+        Debug.Log(Vector3.Distance(transform.position, player.position));
+
         if (Vector3.Distance(transform.position, player.position) < 2 && attackCooldown > 5)
         {
             Debug.Log("started");

@@ -6,6 +6,7 @@ public class SniperWeapon : Weapon
 {
     public GameObject projectile;
     public Transform spawn;
+    public AudioSource attackSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,6 @@ public class SniperWeapon : Weapon
     {
         GameObject newProjectile = Instantiate(projectile, spawn.position, Quaternion.identity);
         newProjectile.GetComponent<Projectile>().direction = transform.up;
+        AudioMgr.Instance.PlaySFX("Ranged Attack", attackSound);
     }
 }

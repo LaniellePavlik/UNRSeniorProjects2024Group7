@@ -5,6 +5,7 @@ using UnityEngine;
 public class BigGuyWeapon : Weapon
 {
     public Animator playerAni;
+    public AudioSource attackSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class BigGuyWeapon : Weapon
     {
         attacking = true;
         windUp = true;
+        AudioMgr.Instance.PlaySFX("Sword Slash", attackSound);
         playerAni.SetTrigger("attack");
     }
 

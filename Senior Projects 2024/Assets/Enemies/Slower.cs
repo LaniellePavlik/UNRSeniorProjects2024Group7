@@ -32,7 +32,7 @@ public class Slower : EnemyAI
         angle += Time.deltaTime * 30;
         attackCooldown += Time.deltaTime;
 
-        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
+        //transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
 
         if (Vector3.Distance(transform.position, player.position) < orbitRadius+2 && attackCooldown > 5)
         {

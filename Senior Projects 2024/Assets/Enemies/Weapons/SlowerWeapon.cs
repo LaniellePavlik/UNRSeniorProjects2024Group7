@@ -8,6 +8,7 @@ public class SlowerWeapon : Weapon
 
     bool attacking;
     Slower entity;
+    public AudioSource attackSound;
     // public Animator enemyAni;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class SlowerWeapon : Weapon
     {
         attacking = true;
         stabbing = true;
+        AudioMgr.Instance.PlaySFX("Sword Slash", attackSound);
     }
 
     bool stabbing;

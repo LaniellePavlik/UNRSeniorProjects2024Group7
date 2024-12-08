@@ -9,6 +9,7 @@ public class FastButLight : EnemyAI
 {
     public Transform player;
     public Animator enemyAni;
+    public AudioSource dashSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +74,7 @@ public class FastButLight : EnemyAI
         base.Dash(dashStartPosiiton, dashEndPosiiton);
         if (!dashing)
         {
+            AudioMgr.Instance.PlaySFX("Dash", dashSound);
             dashCounter++;
             this.dashStartPosiiton = transform.position;
             this.dashEndPosiiton = transform.position + (player.position - transform.position).normalized * Random.Range(3,5);
