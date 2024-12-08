@@ -2882,7 +2882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   llmCharacter: {fileID: 681187262}
-  playerText: {fileID: 1886609635}
   AIText: {fileID: 1466481660}
 --- !u!1001 &137938786
 PrefabInstance:
@@ -14336,11 +14335,11 @@ MonoBehaviour:
   nKeep: -1
   stop: []
   playerName: Ophelia
-  AIName: Ghost
-  prompt: 'You are a ghost named Sam who haunts a long-abandoned library full of
-    ancient books and curses. Talk to Ophelia, the new librarian, who is attempting
-    to revive the library. Limit your responses to 35 words. Do not include quotation
-    marks. '
+  AIName: Sam
+  prompt: You are a ghost named Sam who haunts a long-abandoned library full of ancient
+    books and curses. Talk to Ophelia, the new librarian, who is attempting to revive
+    the library. Limit your responses to 35 words. Do not include quotation marks.
+    Don't include newline characters.
   setNKeepToPrompt: 1
   chat: []
   grammarString: 
@@ -16404,6 +16403,8 @@ MonoBehaviour:
   textComponent: {fileID: 1466481660}
   textSpeed: 0.05
   textbox: {fileID: 762290649}
+  LLM: {fileID: 136050616}
+  playerText: {fileID: 1886609635}
 --- !u!114 &762290649
 MonoBehaviour:
   m_ObjectHideFlags: 0
