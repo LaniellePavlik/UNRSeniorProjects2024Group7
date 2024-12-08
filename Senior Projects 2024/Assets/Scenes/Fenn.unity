@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5669,7 +5669,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 533390232}
   m_HandleRect: {fileID: 533390231}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13123,6 +13123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEnt: {fileID: 0}
+  playerAni: {fileID: 0}
   dashSpeed: 0
   dashDistance: 0
   dashCooldown: 0
@@ -14352,12 +14353,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681187261}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 102.74328, y: 17.197767, z: -59.1567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 933931565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &681187264
 MonoBehaviour:
@@ -20234,6 +20235,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 681187263}
   - {fileID: 1283514737}
   - {fileID: 2067905310}
   - {fileID: 1384579839902174171}
@@ -36038,6 +36040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEnt: {fileID: 0}
+  playerAni: {fileID: 0}
   dashSpeed: 0.1
   dashDistance: 3
   dashCooldown: 0.5
@@ -36063,6 +36066,7 @@ MonoBehaviour:
   easeHealthSlider: {fileID: 0}
   weapons:
   - {fileID: 0}
+  enemyAni: {fileID: 0}
 --- !u!65 &1575598304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50108,7 +50112,6 @@ SceneRoots:
   - {fileID: 630604191}
   - {fileID: 1575598308}
   - {fileID: 1905730334}
-  - {fileID: 681187263}
   - {fileID: 975090330}
   - {fileID: 106088849}
   - {fileID: 1747767451}

@@ -18,6 +18,7 @@ public class InputMgr : MonoBehaviour
     private InputAction questLog;
     private Scene currentScene;
     private bool canDisable = false;
+    public bool inLibrary = false;
 
     public void Awake()
     {
@@ -45,13 +46,13 @@ public class InputMgr : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
-        if(sceneName != "Fenn" || sceneName != "Kat")
-        {
-            canDisable = true;
-            regularAttack = input.Attack.RegularAttack;
-            regularAttack.performed += RegularAttack;
-            regularAttack.Enable();
-        }
+        // if(sceneName != "Fenn" || sceneName != "Kat")
+        // {
+        canDisable = true;
+        regularAttack = input.Attack.RegularAttack;
+        regularAttack.performed += RegularAttack;
+        regularAttack.Enable();
+        // }
 
         interact = input.Interaction.Interact;
         interact.performed += Interact;
@@ -89,12 +90,14 @@ public class InputMgr : MonoBehaviour
 
     private void StartDash(InputAction.CallbackContext context)
     {
-        player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
+        if(inLibrary == false)
+            player.StartDash(cursorPos.ReadValue<Vector2>(), move.ReadValue<Vector2>());
     }
 
     private void RegularAttack(InputAction.CallbackContext context)
     {
-        player.StartAttack();
+        if(inLibrary == false)
+            player.StartAttack();
     }
 
     private void Interact(InputAction.CallbackContext context)
