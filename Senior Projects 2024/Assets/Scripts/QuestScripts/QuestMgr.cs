@@ -34,6 +34,7 @@ public class QuestMgr : MonoBehaviour
 
     private void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         //Broadcast the inital state of all quests on startup
         foreach (Quests quest in questMap.Values)
         {

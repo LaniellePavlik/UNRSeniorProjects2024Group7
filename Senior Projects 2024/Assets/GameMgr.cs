@@ -49,7 +49,7 @@ public class GameMgr : MonoBehaviour
         }
         if (PlayerMgr.inst.player.health <= 0)
         {
-            gameWon.isVisible = false;
+            gameOver.isVisible = true;
             //Time.timeScale = 0;
         }
 
