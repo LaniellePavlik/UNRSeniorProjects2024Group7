@@ -52,7 +52,6 @@ public class QuestPoint : MonoBehaviour
         {
             return;
         }
-        print(currentQuestState);
 
         if (currentQuestState != QuestState.CAN_START && currentQuestState != QuestState.CAN_FINISH)
         {

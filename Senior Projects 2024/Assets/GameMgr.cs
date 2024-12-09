@@ -11,6 +11,8 @@ public class GameMgr : MonoBehaviour
     public int numRooms;
     public int currentRoom;
     public Room BossRoom;
+    public PanelMover gameOver;
+    public PanelMover gameWon;
     bool loadNext;
     bool inLastRoom;
     private void Awake()
@@ -40,9 +42,15 @@ public class GameMgr : MonoBehaviour
             NextRoom();
             loadNext = false;
         }
-        if((inLastRoom && BossRoom.currentWave == BossRoom.numWaves && BossRoom.enemies.Count == 0) || PlayerMgr.inst.player.health <= 0)
+        if((inLastRoom && BossRoom.currentWave == BossRoom.numWaves && BossRoom.enemies.Count == 0))
         {
-            //game over
+            gameWon.isVisible = true;
+            //Time.timeScale = 0;
+        }
+        if (PlayerMgr.inst.player.health <= 0)
+        {
+            gameWon.isVisible = false;
+            //Time.timeScale = 0;
         }
 
     }

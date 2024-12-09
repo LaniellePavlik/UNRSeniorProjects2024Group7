@@ -29,6 +29,7 @@ public class SceneSwitch : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentScene = 0;
+        LoadScene();
     }
 
     public void QuitGame()

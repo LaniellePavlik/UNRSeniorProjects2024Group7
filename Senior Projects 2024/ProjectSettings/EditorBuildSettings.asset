@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3324a0ba92b4760448c3517d91852437
-  - enabled: 0
-    path: Assets/Scenes/Fenn.unity
-    guid: ad3249cd2b39acd4ab6d85966decdd24
-  - enabled: 0
-    path: Assets/Scenes/Liam.unity
-    guid: 38c6352d4d53c3143946bfcae75d54c8
   - enabled: 1
     path: Assets/Scenes/Kat.unity
     guid: dcb9f5a1bb16f374cbfaa409d731cce6
+  - enabled: 1
+    path: Assets/Scenes/Liam.unity
+    guid: 38c6352d4d53c3143946bfcae75d54c8
+  - enabled: 0
+    path: Assets/Scenes/Fenn.unity
+    guid: ad3249cd2b39acd4ab6d85966decdd24
   m_configObjects: {}

@@ -8,29 +8,37 @@ public class BookSwitch : MonoBehaviour
     private bool playerIsNear = false;
 
     public SceneSwitch sceneSwitch;
-    public GameObject book;
-    public QuestPoint questPoint;
+
+
+    private void OnEnable()
+    {
+        GameEventsManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
+    }
 
     void Start()
     {
-        book.SetActive(false);
+ 
     }
 
     void Update()
     {
-        if(questPoint.currentQuestState == QuestState.FINISHED)
-        {
-            book.SetActive(true);
-        }
     }
 
     private void SubmitPressed()
     {
         if (!playerIsNear)
         {
+            
+            print("Here2");
             return;
         }
 
+        print("Here");
         sceneSwitch.currentScene = 2;
         sceneSwitch.LoadScene();
         

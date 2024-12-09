@@ -12,6 +12,15 @@ public class InputEvents
         }
     }
 
+    public event Action onBookSubmitPressed;
+    public void SubmitBookPressed()
+    {
+        if (onBookSubmitPressed != null)
+        {
+            onBookSubmitPressed();
+        }
+    }
+
     public event Action onQuestLogTogglePressed;
     public void QuestLogTogglePressed()
     {
