@@ -6,14 +6,17 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
+//Author:Fenn
+//Reference: https://www.youtube.com/watch?v=ZYVED_aLHj0&t=503s
+//This handles the quest buttons
+
 public class QuestLogButton : MonoBehaviour, ISelectHandler
 {
     public Button button { get; private set; }
     private TextMeshProUGUI buttonText;
     private UnityAction onSelectAction;
 
-    // because we're instantiating the button and it may be disabled when we
-    // instantiate it, we need to manually initialize anything here.
+    //Initalize the button
     public void Initialize(string displayName, UnityAction selectAction) 
     {
         this.button = this.GetComponent<Button>();
@@ -23,11 +26,13 @@ public class QuestLogButton : MonoBehaviour, ISelectHandler
         this.onSelectAction = selectAction;
     }
 
+    //What happens when a button is selected
     public void OnSelect(BaseEventData eventData)
     {
         onSelectAction();
     }
 
+    //This set state sets the color and progress
     public void SetState(QuestState state)
     {
         switch (state)

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+//Author: Fenn
 public class BookSwitch : MonoBehaviour
 {
-    private bool playerIsNear = false;
+    private bool playerIsNear = false; //This just checks for if the player is close to activate the trigger
 
-    public SceneSwitch sceneSwitch;
+    public SceneSwitch sceneSwitch; //Reference to switch scenes
 
 
+    //Call upon the game event manager to add my events
     private void OnEnable()
     {
         GameEventsManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
@@ -29,6 +31,8 @@ public class BookSwitch : MonoBehaviour
     {
     }
 
+    //I forgot to get rid of my debugs and I'm scared to break something so pretend
+    //Like they don't exist thank you :))
     private void SubmitPressed()
     {
         if (!playerIsNear)
@@ -43,7 +47,8 @@ public class BookSwitch : MonoBehaviour
         sceneSwitch.LoadScene();
         
     }
-    // Start is called before the first frame update
+
+    // Checks for the player entering the trigger area in which you can interact with the book
     private void OnTriggerEnter(Collider otherColldier)
     {
         if (otherColldier.tag == "Player")
@@ -52,6 +57,8 @@ public class BookSwitch : MonoBehaviour
         }
     }
 
+    // Checks for the player leaving the trigger area in which you can interact with the book 
+    // (and makes it so they can't interact with it outside a certain range)
     private void OnTriggerExit(Collider otherColldier)
     {
         if (otherColldier.tag == "Player")

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Author:Fenn
+//Reference: https://www.youtube.com/watch?v=ZYVED_aLHj0&t=503s with modifications
+//This handles the scrolling quest log
 public class QuestLogScrollingList : MonoBehaviour
 {
     [Header("Components")]
@@ -17,6 +20,7 @@ public class QuestLogScrollingList : MonoBehaviour
 
     private Dictionary<string, QuestLogButton> idToButtonMap = new Dictionary<string, QuestLogButton>();
 
+    //Create the selectable questbuttons
     public QuestLogButton CreateButtonIfNotExists(Quests quest, UnityAction selectAction) 
     {
         QuestLogButton questLogButton = null;
@@ -32,15 +36,14 @@ public class QuestLogScrollingList : MonoBehaviour
         return questLogButton;
     }
 
+    //Actually instantiate the buttons
     public QuestLogButton InstantiateQuestLogButton(Quests quest, UnityAction selectAction)
     {
-        // create the button
         QuestLogButton questLogButton = Instantiate(
             questLogButtonPrefab,
             contentParent.transform).GetComponent<QuestLogButton>();
-        // game object name in the scene
         questLogButton.gameObject.name = quest.info.id + "_button";
-        // initialize and set up function for when the button is selected
+        //init and set up button
         RectTransform buttonRectTransform = questLogButton.GetComponent<RectTransform>();
         questLogButton.Initialize(quest.info.displayName, () => {
             selectAction();
@@ -51,17 +54,18 @@ public class QuestLogScrollingList : MonoBehaviour
         return questLogButton;
     }
 
+    //If there is more quests than space in the scroll, update the quest scrolling port!
     public void UpdateScrolling(RectTransform buttonRectTransform)
     {
-        // calculate the min and max for the selected button
+        //Calc the min and max for the selected button
         float buttonYMin = Mathf.Abs(buttonRectTransform.anchoredPosition.y);
         float buttonYMax = buttonYMin + buttonRectTransform.rect.height;
 
-        // calculate the min and max for the content area
+        //CAlcthe min and max for the content area
         float contentYMin = contentRectTransform.anchoredPosition.y;
         float contentYMax = contentYMin + scrollRectTransform.rect.height;
 
-        // handle scrolling down
+        //Scrolling down
         if (buttonYMax > contentYMax)
         {
             contentRectTransform.anchoredPosition = new Vector2(
@@ -69,7 +73,7 @@ public class QuestLogScrollingList : MonoBehaviour
                 buttonYMax - scrollRectTransform.rect.height
             );
         }
-        // handle scrolling up
+        //Scrolling up
         else if (buttonYMin < contentYMin) 
         {
             contentRectTransform.anchoredPosition = new Vector2(

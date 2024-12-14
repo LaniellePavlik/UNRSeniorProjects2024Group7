@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//With Reference to: https://www.youtube.com/watch?v=UyTJLDGcT64
+
+//This file just gets the state and status of the quest step
 [System.Serializable]
 public class QuestStepState
 {

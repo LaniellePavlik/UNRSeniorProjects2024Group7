@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//With Reference to: https://www.youtube.com/watch?v=UyTJLDGcT64 
+
 public class QuestIcon : MonoBehaviour
 {
     [Header("Icons")]
@@ -12,13 +15,13 @@ public class QuestIcon : MonoBehaviour
 
     public void SetState(QuestState newState, bool startPoint, bool finishPoint)
     {
-        // set all to inactive
+        // Set all requirements to inactive
         requirementsNotMetToStartIcon.SetActive(false);
         canStartIcon.SetActive(false);
         requirementsNotMetToFinishIcon.SetActive(false);
         canFinishIcon.SetActive(false);
 
-        // set the appropriate one to active based on the new state
+        // Set the appropriate state
         switch (newState)
         {
             case QuestState.REQUIREMENTS_NOT_MET:

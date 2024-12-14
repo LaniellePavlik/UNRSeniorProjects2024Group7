@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+//Author: Fenn
+//Creates the HUD questlog 
+//Reference: https://www.youtube.com/watch?v=ZYVED_aLHj0&t=503s
+
 public class QuestLogNormalUI : MonoBehaviour
 {
     public GameObject questPrefab;
@@ -34,6 +38,7 @@ public class QuestLogNormalUI : MonoBehaviour
         
     }
 
+    //Create a display for the quest logs on HUD
     public QuestDisplayPrefab CreateDisplayIfNotExists(Quests quest) 
     {
         QuestDisplayPrefab questPrefab = null;
@@ -58,23 +63,22 @@ public class QuestLogNormalUI : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
     }
 
+    //Instantiate all the quest prefabs for the HUD log
     private QuestDisplayPrefab InstantiateDisplayPrefab(Quests quest)
     {
-        // create the display
         QuestDisplayPrefab createdQuestPrefab = Instantiate(
             questPrefab,
             contentParent.transform).GetComponent<QuestDisplayPrefab>();
-        // game object name in the scene
         createdQuestPrefab.gameObject.name = quest.info.id + "_display";
-        // initialize and set up function for when the display is selected
         // RectTransform displayRectTransform = createdQuestPrefab.GetComponent<RectTransform>();
         createdQuestPrefab.UpdateDisplay(quest.info.displayName, quest.GetFullStatusText());
         print(quest.GetFullStatusText());
-        // add to map to keep track of the new quests
+        //Add to map to keep track of the new quests
         idToQuestMap[quest.info.id] = createdQuestPrefab;
         return createdQuestPrefab;
     }
 
+    //Change quest state when it should change
     public void QuestStateChange(Quests quest)
     {
         QuestDisplayPrefab questLogPrefab = CreateDisplayIfNotExists(quest);

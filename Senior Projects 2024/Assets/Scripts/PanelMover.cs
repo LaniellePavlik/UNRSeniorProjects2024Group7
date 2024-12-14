@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Author: Fenn
+
 public class PanelMover : MonoBehaviour
 {
 
@@ -15,6 +17,7 @@ public class PanelMover : MonoBehaviour
         // holdingPosition = panel.anchoredPosition;
     }
 
+    //If the bool is set to visible it will move the panel onto the canvas, and vice versa if false
     public bool _isVisible = false;
     public bool isVisible
     {
@@ -32,7 +35,7 @@ public class PanelMover : MonoBehaviour
         }
     }
 
-    public bool isTimed = false;
+    public bool isTimed = false; //Option for panel to be timed in its length.
     public float showDuration = 5;
 
     IEnumerator HideAfterTime(float time)
@@ -40,6 +43,8 @@ public class PanelMover : MonoBehaviour
         yield return new WaitForSeconds(time);
         isVisible = false;
     }
+
+    //Context menu's to move panels around in the editor so I don't have to drag them all the time
 
     [ContextMenu("TestPanel")]
     public void TestPanel()
@@ -59,18 +64,21 @@ public class PanelMover : MonoBehaviour
         SetVisiblePosition(visiblePosition);
     }
 
+    // Sets the visible position
     public void SetVisiblePosition(Vector2 position)
     {
         visiblePosition = position;
         panel.anchoredPosition = visiblePosition;
     }
 
+    // Pauses the time for when you're in a menu
     public void pauseTime()
     {
         GameEventsManager.instance.playerEvents.DisablePlayerMovement();
         Time.timeScale = 0;
     }
 
+    // Starts the time for when you're out of a menu
     public void startTime()
     {
         GameEventsManager.instance.playerEvents.EnablePlayerMovement();

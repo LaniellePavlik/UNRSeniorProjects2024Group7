@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: fenn
+//Quest for defeating enemies, parameters layed out but not implemented fully in game
 public class DefeatEnemiesQuestStep : QuestStep
 {
     

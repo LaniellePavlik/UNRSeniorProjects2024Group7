@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Author: Fenn
+//The logic behind where the defeat level quest will go, aka winning the first level
+//The logic has yet to be fully implemented but is set up
 
 public class DefeatLvlQuestStep : QuestStep
 {
@@ -30,6 +33,7 @@ int goalState = 1;
         }
     }
 
+    //Check for the level being done
     private void UpdateState()
     {
         string state = currentState.ToString();

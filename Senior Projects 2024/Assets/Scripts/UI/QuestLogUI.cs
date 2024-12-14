@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-
+//Author: Fenn
+//Reference: https://www.youtube.com/watch?v=ZYVED_aLHj0&t=503s with modifications
+//This defines the quest log UI shown when pressing Q
 public class QuestLogUI : MonoBehaviour
 {
     [Header("Components")]
@@ -17,6 +19,7 @@ public class QuestLogUI : MonoBehaviour
 
     private Button firstSelectedButton;
 
+    //Enable gameevents
     void OnEnable()
     {
         GameEventsManager.instance.inputEvents.onQuestLogTogglePressed += QuestLogTogglePressed;
@@ -29,6 +32,7 @@ public class QuestLogUI : MonoBehaviour
         GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
     }
 
+    //If Q is pressed either show or hide the log
     public void QuestLogTogglePressed()
     {
         if (UIpanel.isVisible == true)
@@ -41,6 +45,7 @@ public class QuestLogUI : MonoBehaviour
         }
     }
 
+    //If the log is visible, deactivate player movement
     public void ShowUI()
     {
         UIpanel.isVisible = true;
@@ -51,6 +56,7 @@ public class QuestLogUI : MonoBehaviour
         }
     }
 
+    //If the log is disabled, activate player movement
     public void HideUI()
     {
         UIpanel.isVisible = false;
@@ -58,9 +64,10 @@ public class QuestLogUI : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    //Update the quest log to reflect the quest states
     public void QuestStateChange(Quests quest)
     {
-        // add the button to the scrolling list if not already added
+        //Add to the list
         QuestLogButton questLogButton = scrollingList.CreateButtonIfNotExists(quest, () => {
             SetQuestLogInfo(quest);
         });
@@ -70,16 +77,15 @@ public class QuestLogUI : MonoBehaviour
             firstSelectedButton = questLogButton.button;
         }
 
-        // set the button color based on quest state
+        //Set colors to different states!
         questLogButton.SetState(quest.state);
     }
 
+    //Sets the actual detailed quest log showing only one quest at a time
     public void SetQuestLogInfo(Quests quest)
     {
-        // quest name
         questDisplayNameText.text = quest.info.displayName;
 
-        // status
         questStatusText.text = quest.GetFullStatusText();
 
         // rewards (add this later)

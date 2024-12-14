@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Author: Fenn
+//Loads scenes depending on the situation
 public class SceneSwitch : MonoBehaviour
 {
     [HideInInspector]
@@ -13,6 +15,7 @@ public class SceneSwitch : MonoBehaviour
         StartCoroutine(LoadYourAsyncScene());
     }
 
+    //Basic Load
    IEnumerator LoadYourAsyncScene()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(currentScene);
@@ -32,6 +35,7 @@ public class SceneSwitch : MonoBehaviour
         LoadScene();
     }
 
+    //Quits the game
     public void QuitGame()
     {
         Application.Quit();

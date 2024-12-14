@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//With Reference to: https://www.youtube.com/watch?v=UyTJLDGcT64 and modifications
+
 public class QuestMgr : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private bool loadQuestState = true;
     private Dictionary<string, Quests> questMap;
 
+    //Start with creating a dictonary of id's and quests
     private void Awake()
     {
         questMap = CreateQuestMap();
     }
 
+    //Initalize all my gameevenets related to quests, such as moving through states
     private void OnEnable()
     {
         GameEventsManager.instance.questEvents.onStartQuest += StartQuest;
@@ -34,20 +39,20 @@ public class QuestMgr : MonoBehaviour
 
     private void Start()
     {
+        //I kept breaking the UI so it got modified
         Screen.SetResolution(1920, 1080, true);
-        //Broadcast the inital state of all quests on startup
         foreach (Quests quest in questMap.Values)
         {
-             // initialize any loaded quest steps
+             //Init loaded quest steps
             if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
-            // broadcast the initial state of all quests on startup
             GameEventsManager.instance.questEvents.QuestStateChange(quest);
         }
     }
 
+    //The gameEvent in which the quest state will update based off the parameters ex: canstart, finished
      private void ChangeQuestState(string id, QuestState state)
     {
         Quests quest = GetQuestByID(id);
@@ -55,10 +60,12 @@ public class QuestMgr : MonoBehaviour
         GameEventsManager.instance.questEvents.QuestStateChange(quest);
     }
 
+    //Make sure the requirements for the quest are met
     private bool CheckRequirementsMet(Quests quest)
     {
-        // start true and prove to be false
         bool meetsRequirements = true;
+
+        //I don't have a lvl thing yet but this is there incase we add one
 
         // check player level requirements
         // if (currentPlayerLevel < quest.info.levelRequirement)
@@ -66,7 +73,7 @@ public class QuestMgr : MonoBehaviour
         //     meetsRequirements = false;
         // }
 
-        // check quest prerequisites for completion
+        //Check quest prerecs
         foreach (PatronRequests prerequisiteQuestInfo in quest.info.questPrerecs)
         {
             if (GetQuestByID(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
@@ -80,10 +87,10 @@ public class QuestMgr : MonoBehaviour
 
      private void Update()
     {
-        // loop through ALL quests
+        //Loop thru quests
         foreach (Quests quest in questMap.Values)
         {
-            // if we're now meeting the requirements, switch over to the CAN_START state
+            //If requirements are met, go to the quest change can start state
             if (quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
             {
                 ChangeQuestState(quest.info.id, QuestState.CAN_START);
@@ -91,6 +98,7 @@ public class QuestMgr : MonoBehaviour
         }
     }
 
+    //Gameevent where we actually start the quest and boot up the first step!
     private void StartQuest(string id)
     {
         Quests quest = GetQuestByID(id);
@@ -98,25 +106,26 @@ public class QuestMgr : MonoBehaviour
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
     }
 
+    //Go to the next step, if there is none the quest can advance
     private void AdvanceQuest(string id)
     {
         Quests quest = GetQuestByID(id);
 
-        // move on to the next step
         quest.MoveToNextStep();
 
-        // if there are more steps, instantiate the next one
+        //Init next step
         if (quest.currentStepExists())
         {
             quest.InstantiateCurrentQuestStep(this.transform);
         }
-        // if there are no more steps, then we've finished all of them for this quest
+
         else
         {
             ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
         }
     }
 
+    //Gameevent for when the quest is finished and rewards can be claimed
     private void FinishQuest(string id)
     {
         Quests quest = GetQuestByID(id);
@@ -126,9 +135,12 @@ public class QuestMgr : MonoBehaviour
 
     private void ClaimRewards(Quests quest)
     {
+        //I have nothing implemented for rewards but itll happen eventually
+
         // GameEventsManager.instance.goldEvents.GoldGained(quest.info.goldReward);
     }
 
+    //Game event action where we change the quest state
     private void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)
     {
         Quests quest = GetQuestByID(id);
@@ -136,6 +148,7 @@ public class QuestMgr : MonoBehaviour
         ChangeQuestState(id, quest.state);
     }
 
+    //Creates the map of id's to quests
     private Dictionary<string, Quests> CreateQuestMap()
     {
         PatronRequests[] allQuests = Resources.LoadAll<PatronRequests>("Quests");
@@ -151,6 +164,7 @@ public class QuestMgr : MonoBehaviour
         return idToQuestMap;
     }
 
+    //Retrieves the quest in the map
     private Quests GetQuestByID(string id)
     {
         Quests quest = questMap[id];
@@ -161,6 +175,7 @@ public class QuestMgr : MonoBehaviour
         return quest;
     }
 
+    //Theoretically saves quests if we quit
      private void OnApplicationQuit()
     {
         foreach (Quests quest in questMap.Values)
@@ -169,16 +184,14 @@ public class QuestMgr : MonoBehaviour
         }
     }
 
+    //Save the queststate (Still needs work)
     private void SaveQuest(Quests quest)
     {
         try 
         {
             QuestData questData = quest.GetQuestData();
-            // serialize using JsonUtility, but use whatever you want here (like JSON.NET)
+            //Save everything to a json
             string serializedData = JsonUtility.ToJson(questData);
-            // saving to PlayerPrefs is just a quick example for this tutorial video,
-            // you probably don't want to save this info there long-term.
-            // instead, use an actual Save & Load system and write to a file, the cloud, etc..
             PlayerPrefs.SetString(quest.info.id, serializedData);
         }
         catch (System.Exception e)
@@ -187,19 +200,20 @@ public class QuestMgr : MonoBehaviour
         }
     }
 
+    //Load the quest on boot (Still needs work)
     private Quests LoadQuest(PatronRequests questInfo)
     {
         Quests quest = null;
         try 
         {
-            // load quest from saved data
+            //Load quest from data
             if (PlayerPrefs.HasKey(questInfo.id) && loadQuestState)
             {
                 string serializedData = PlayerPrefs.GetString(questInfo.id);
                 QuestData questData = JsonUtility.FromJson<QuestData>(serializedData);
                 quest = new Quests(questInfo, questData.state, questData.questStepIndex, questData.questStepStates);
             }
-            // otherwise, initialize a new quest
+            //Or add a new quest
             else 
             {
                 quest = new Quests(questInfo);

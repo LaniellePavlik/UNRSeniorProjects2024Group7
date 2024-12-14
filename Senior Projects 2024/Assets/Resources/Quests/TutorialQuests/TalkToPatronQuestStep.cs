@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
+//Author: Fenn 
+//Quest to talk to the patron and test the LLM feature
 public class TalkToPatronQuestStep : QuestStep
 {
    int patronsSpokenTo = 0;
@@ -25,6 +27,7 @@ public class TalkToPatronQuestStep : QuestStep
         GameEventsManager.instance.miscEvents.onPatronTalked -= SpokenTo; 
     }
 
+    //sSeems redundant to finish quest step twice but accounts for edge cases later
     private void SpokenTo()
     {
         if (patronsSpokenTo >= speakingGoal)
@@ -39,6 +42,7 @@ public class TalkToPatronQuestStep : QuestStep
         }
     }
 
+    //Update quest log
     private void UpdateState()
     {
         string state = patronsSpokenTo.ToString();

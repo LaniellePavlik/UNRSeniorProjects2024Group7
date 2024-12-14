@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//Basically just updates the scene that needs to be switched to within my scene manager
 public class ButtonHandler : MonoBehaviour
 {
 

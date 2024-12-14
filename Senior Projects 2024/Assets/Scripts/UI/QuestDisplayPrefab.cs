@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+//Author:Fenn
+//Creates quest displays in the main HUD
+
 public class QuestDisplayPrefab : MonoBehaviour
 {
 
@@ -26,7 +29,7 @@ public class QuestDisplayPrefab : MonoBehaviour
         
     }
 
-    
+    //Updates the main quest display prefab
     public void UpdateDisplay(string displayName, string questText) 
     {
         QuestTitle.text = displayName;

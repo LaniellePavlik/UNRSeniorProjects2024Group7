@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//With Reference to: https://www.youtube.com/watch?v=UyTJLDGcT64
+
 public class Quests
 {
     //Quest Info
     public PatronRequests info;
-
-    //state info
     public QuestState state;
     private int currentQuestStepIndex;
     private QuestStepState[] questStepStates;
 
+    //Set a quest up from its scriptable object
     public Quests(PatronRequests questInfo)
     {
         this.info = questInfo;
@@ -24,6 +26,7 @@ public class Quests
         }
     }
 
+    //Hopefully restore saved data (Still needs work)
     public Quests(PatronRequests questInfo, QuestState questState, int currentQuestStepIndex, QuestStepState[] questStepStates)
     {
         this.info = questInfo;
@@ -31,27 +34,26 @@ public class Quests
         this.currentQuestStepIndex = currentQuestStepIndex;
         this.questStepStates = questStepStates;
 
-        // if the quest step states and prefabs are different lengths,
-        // something has changed during development and the saved data is out of sync.
+        //Check if data is out of sync
         if (this.questStepStates.Length != this.info.questStepPrefabs.Length)
         {
-            Debug.LogWarning("Quest Step Prefabs and Quest Step States are "
-                + "of different lengths. This indicates something changed "
-                + "with the QuestInfo and the saved data is now out of sync. "
-                + "Reset your data - as this might cause issues. QuestId: " + this.info.id);
+            Debug.LogWarning("prefab and state out of sync" + this.info.id);
         }
     }
 
+    //Move to the next step by incrementing the index of steps
     public void MoveToNextStep()
     {
         currentQuestStepIndex++;
     }
 
+    //Check there is a step to go to next
     public bool currentStepExists()
     {
         return (currentQuestStepIndex < info.questStepPrefabs.Length);
     }
 
+    //Init the prefab for quest steps that I step up indivdually for each quest
     public void InstantiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
@@ -63,6 +65,7 @@ public class Quests
         }
     }
 
+    //Get the current quest step prefab before inting it
     private GameObject GetCurrentQuestStepPrefab()
     {
         GameObject questStepPrefab = null;
@@ -77,6 +80,7 @@ public class Quests
         return questStepPrefab;
     }
 
+    //should theoretically save quest step data (Still needs work)
     public void StoreQuestStepState(QuestStepState questStepState, int stepIndex)
     {
         if (stepIndex < questStepStates.Length)
@@ -86,16 +90,17 @@ public class Quests
         }
         else 
         {
-            Debug.LogWarning("Tried to access quest step data, but stepIndex was out of range: "
-                + "Quest Id = " + info.id + ", Step Index = " + stepIndex);
+            Debug.LogWarning("Step index out of range");
         }
     }
 
+    //Pull the quest Data
      public QuestData GetQuestData()
     {
         return new QuestData(state, currentQuestStepIndex, questStepStates);
     }
 
+    //Print out the status of the quest for debugging, quest log, and such
      public string GetFullStatusText()
     {
         string fullStatus = "";
@@ -110,17 +115,17 @@ public class Quests
         }
         else 
         {
-            // display all previous quests with strikethroughs
+            //This puts strikethroughs
             for (int i = 0; i < currentQuestStepIndex; i++)
             {
                 fullStatus += "<s>" + questStepStates[i].status + "</s>\n";
             }
-            // display the current step, if it exists
+            //Display current step
             if (currentStepExists())
             {
                 fullStatus += questStepStates[currentQuestStepIndex].status;
             }
-            // when the quest is completed or turned in
+            //When quest can be completed or turned in
             if (state == QuestState.CAN_FINISH)
             {
                 fullStatus += "The quest is ready to be turned in.";

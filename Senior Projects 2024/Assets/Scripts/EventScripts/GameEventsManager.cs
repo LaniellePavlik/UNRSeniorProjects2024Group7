@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Fenn
+//Original Reference: https://www.youtube.com/watch?v=UyTJLDGcT64 
+//With modification to account for more that I added on top of it like expanded event sysems
 public class GameEventsManager : MonoBehaviour
 {
     public static GameEventsManager instance { get; private set;}

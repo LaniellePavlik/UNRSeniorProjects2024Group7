@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
 
+//Author: Fenn
+//With Reference to: https://www.youtube.com/watch?v=UyTJLDGcT64 and modifications
+
+//Require a trigger component so we have an interatable area
 [RequireComponent(typeof(SphereCollider))]
 public class QuestPoint : MonoBehaviour
 {
@@ -34,6 +38,7 @@ public class QuestPoint : MonoBehaviour
         script = talkCanvas.GetComponent<Dialogue>();
     }
 
+    //Enable/Disable gameevents
     private void OnEnable()
     {
         GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
@@ -46,6 +51,8 @@ public class QuestPoint : MonoBehaviour
         GameEventsManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
+    //This function checks for the user pressing E and then checks if the assoicated quest can be started, finished, or is currently active/inactive
+    //Then it calls the LLM or quest dialogue accordingly
     private void SubmitPressed()
     {
         if (!playerIsNear)
@@ -73,6 +80,7 @@ public class QuestPoint : MonoBehaviour
         }
     }
 
+    //Gameevent in which quest state can be updated
     private void QuestStateChange(Quests quest)
     {
         //Only update the quest state if this point has the corresponding quest
@@ -83,6 +91,7 @@ public class QuestPoint : MonoBehaviour
         }
     }
 
+    //Check player proximity to NPC's with triggers
     private void OnTriggerEnter(Collider otherColldier)
     {
         if (otherColldier.tag == "Player")
