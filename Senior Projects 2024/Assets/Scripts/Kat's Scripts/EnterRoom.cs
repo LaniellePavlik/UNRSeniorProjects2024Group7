@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Kat
 public class EnterRoom : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)

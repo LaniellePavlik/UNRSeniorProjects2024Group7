@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//Author: Kat
 //the audio manager for the game
 //manages music and sfx
 //i think something broke within the implementation but USUALLY this allows for the player

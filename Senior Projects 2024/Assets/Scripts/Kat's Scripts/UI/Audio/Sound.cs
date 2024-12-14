@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
+//Author: Kat
 //stores the name and clip of the audio
 public class Sound
 {
