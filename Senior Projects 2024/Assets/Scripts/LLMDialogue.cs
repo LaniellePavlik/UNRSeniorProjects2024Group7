@@ -4,6 +4,7 @@ using UnityEngine.UI;
 // using UnityEditor.VersionControl;
 using static UnityEngine.InputSystem.InputRemoting;
 
+//Authored By Lanielle, based on SimpleInteraction example code from LLM Plugin
 
 public class LLMInteraction : MonoBehaviour
 {
