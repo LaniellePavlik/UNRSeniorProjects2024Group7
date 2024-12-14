@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Author: Kat
 //just a script to create a pause menu that pops us when the player presses escape. 
 //eventually added a physical button to pause but escape still works
 //it also pauses player movement bc thats what youre supposed to do when youre paused

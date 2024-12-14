@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Author: Kat
 //using the scriptable object system
 //script defines the properties of an inventory item
 //like the name identification number boost value
