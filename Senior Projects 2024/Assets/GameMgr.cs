@@ -1,3 +1,6 @@
+//Script: GameMgr.cs
+//Contributor: Liam Francisco
+//Summary: Handles transitioning between rooms and beating/failing the level
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +23,7 @@ public class GameMgr : MonoBehaviour
         inst = this;
     }
 
-    // Start is called before the first frame update
+    // initializes the order of which rooms will appear and initialized variables for counting what room the player is in.
     void Start()
     {
         roomIndexes = new List<int>();
@@ -34,7 +37,7 @@ public class GameMgr : MonoBehaviour
         loadNext = true;
     }
 
-    // Update is called once per frame
+    // checks whether or not the current room is in a valid state for the next room to be loaded.
     void Update()
     {
         if (loadNext)
@@ -55,6 +58,7 @@ public class GameMgr : MonoBehaviour
 
     }
 
+    // loads the next room
     public void NextRoom()
     {
         currentRoom++;
@@ -64,6 +68,7 @@ public class GameMgr : MonoBehaviour
             EnterBossRoom();
     }
 
+    // loads the boss room
     public void EnterBossRoom()
     {
         BossRoom.EnterRoom(PlayerMgr.inst.player.transform, Camera.main.transform, 1, 1, 1);

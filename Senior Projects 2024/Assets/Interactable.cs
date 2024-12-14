@@ -1,3 +1,6 @@
+//Script: Interactable.cs
+//Contributor: Liam Francisco
+//Summary: Base class for all interactable objects
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

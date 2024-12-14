@@ -1,3 +1,6 @@
+//Script: Door.cs
+//Contributor: Liam Francisco
+//Summary: Class for any door objects in a combat world
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +10,7 @@ public class Door : Interactable
     public bool locked;
     public Room room;
 
-    // Start is called before the first frame update
+    // adds this door to the PlayerMgr’s list of interactables so the player can reference it in its Interact method in PlayerController
     void Start()
     {
         PlayerMgr.inst.interactables.Add(this);
@@ -20,12 +23,14 @@ public class Door : Interactable
         
     }
 
+    //loads the next room
     public override void Interact()
     {
         base.Interact();
         GameMgr.inst.NextRoom();
     }
 
+    //detects when the player is in the interacting range of the door.
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && !locked)
@@ -34,6 +39,7 @@ public class Door : Interactable
         }
     }
 
+    //detects when the player leaves the interacting range of the door.
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

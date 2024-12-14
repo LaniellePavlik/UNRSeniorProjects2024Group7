@@ -1,18 +1,20 @@
+//Script: AOEProjectile.cs
+//Contributor: Liam Francisco
+//Summary: Handles the projectile for the "AOE" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AOEProjectile : Projectile
 {
-    // Start is called before the first frame update
-    public Transform player;
-    public GameObject debugSphere;
+    public Transform player; // player's position
+    public GameObject debugSphere; // shows explosion radius
     void Start()
     {
         baseDamage = 5;
     }
 
-    // Update is called once per frame
+    // handles projectile physics
     void Update()
     {
         Vector3 velocity = direction * speed;
@@ -22,6 +24,7 @@ public class AOEProjectile : Projectile
         UpdatePosition();
     }
 
+    // handles projectile explosion
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.tag.Equals("Weapon") && !other.gameObject.tag.Equals("Enemy"))

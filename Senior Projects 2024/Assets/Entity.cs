@@ -1,3 +1,6 @@
+//Script: Entity.cs
+//Contributor: Liam Francisco
+//Summary: Class held by all entities (Players or Enemies). Handles aspcets like speed and health
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

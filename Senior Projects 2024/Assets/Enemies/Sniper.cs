@@ -1,3 +1,6 @@
+//Script: Sniper.cs
+//Contributor: Liam Francisco
+//Summary: Handles the AI for the "Sniper" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +8,12 @@ using UnityEngine.AI;
 
 public class Sniper : EnemyAI
 {
-    public Transform player;
-    public float minRange;
-    public float maxRange;
-    public Animator enemyAni;
-    // Start is called before the first frame update
+    public Transform player; // player's position
+    public float minRange; // min distance between Sniper and player
+    public float maxRange; // max distance between Sniper and player
+    public Animator enemyAni; // animations for attacking, moving, etc.
+
+    // initializes EnemyAI parameters
     void Start()
     {
         movePosition = Vector3.zero;
@@ -19,11 +23,12 @@ public class Sniper : EnemyAI
     }
 
 
-    Vector3 movePosition;
-    float attackCooldown;
-    // Update is called once per frame
+    Vector3 movePosition; // where the Slower is going to move
+    float attackCooldown; // tracks time in between attacks
+
     void Update()
     {
+        //updates move position to make the Sniper be in between minRange and maxRange units away from the player
         float dist = Vector3.Distance(player.position, movePosition);
         if(dist < minRange || dist > maxRange)
         {
@@ -32,6 +37,7 @@ public class Sniper : EnemyAI
         transform.LookAt(new Vector3(player.position.x, transform.position.y, player.transform.position.z), Vector3.up);
         SetMove(movePosition);
 
+        //Attacks every 2 seconds
         attackCooldown += Time.deltaTime;
 
         if (attackCooldown > 2)
@@ -40,6 +46,7 @@ public class Sniper : EnemyAI
             attackCooldown = 0;
         }
 
+        //Handles walk vs idle animations
         if (agent.isStopped)
             enemyAni.SetBool("Idle", true);
         else

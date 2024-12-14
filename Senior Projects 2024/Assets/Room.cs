@@ -1,3 +1,6 @@
+//Script: Room.cs
+//Contributor: Liam Francisco
+//Summary: Class for any rooms in a combat world
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +22,8 @@ public class Room : MonoBehaviour
     public List<GameObject> enemyPrefabs;
     public List<Door> doors;
     public List<GameObject> enemies;
+
+    //initializes all the potential positions an enemy can spawn in
     void Start()
     {
         enemySpawnPositions = new List<Vector3>();
@@ -29,6 +34,7 @@ public class Room : MonoBehaviour
         enemySpawnPositions.Remove(transform.position);
     }
 
+    //spawns the player in the room and initializes the current wave to zero
     public void EnterRoom(Transform player, Transform camera, int minEnemies, int maxEnemies, int numWaves)
     {
         inRoom = true;
@@ -48,6 +54,7 @@ public class Room : MonoBehaviour
         inRoom = false;
     }
 
+    //spawns a new wave in the room after a previous wave has been defeated
     public void SpawnWave()
     {
         int upperBound = Mathf.Min(maxEnemies, enemySpawnPositions.Count);
@@ -63,6 +70,7 @@ public class Room : MonoBehaviour
         }
     }
 
+    //locks/unlocks all the doors in the room allowing/preventing the player from interacting with the door
     public void SetDoors(bool locked)
     {
         foreach (Door door in doors)
@@ -71,7 +79,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // checks whether or not to spawn a new wave of enemies and whether or not to unlock the doors in the room
     void Update()
     {
         if (inRoom)

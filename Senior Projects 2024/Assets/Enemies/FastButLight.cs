@@ -1,3 +1,6 @@
+//Script: FastButLight.cs
+//Contributor: Liam Francisco
+//Summary: Handles the AI for the "FastButLight" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,12 +10,13 @@ using UnityEngine.Experimental.AI;
 
 public class FastButLight : EnemyAI
 {
-    public Transform player;
-    public Animator enemyAni;
-    public AudioSource dashSound;
-    public int minRange = 3;
-    public int maxRange = 5;
-    // Start is called before the first frame update
+    public Transform player; // player's position
+    public Animator enemyAni; // animations for attacking, moving, etc.
+    public AudioSource dashSound; // sound played when dashing
+    public int minRange = 3; // min dash distance
+    public int maxRange = 5; // max dash distance
+
+    // initializes EnemyAI parameters
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,29 +28,31 @@ public class FastButLight : EnemyAI
         enemyAni.SetBool("isrunning", true);
     }
 
-    Vector3 movePosition;
-    bool tripleDashStarted;
-    public float dashCoolDownTimer;
-    // Update is called once per frame
+    Vector3 movePosition; // where the FastButLight is going to move
+    bool tripleDashStarted; // tells whether or not the enemy is in its dash sequence
+    public float dashCoolDownTimer; // tracks time in between dashes
+ 
     void Update()
     {
         float dist = Vector3.Distance(player.position, transform.position);
-        if (!tripleDashStarted)
+        if (!tripleDashStarted) //not dashing
         {
+            //updates move position to make the FastButLight move towards the player
             agent.enabled = true;
             movePosition = GetClosestPointInRadius(player.position, 5);
             SetMove(movePosition);
             dashCoolDownTimer += Time.deltaTime;
 
+            //start dash if in range and haven't dashed in 10 seconds
             if (dist < 6 && dashCoolDownTimer > 10)
                 StartTripleDash();
                 
         }
-        else
+        else // dashing
         {
-            if (!inBetweenDashes)
+            if (!inBetweenDashes) 
                 Dash(dashStartPosiiton, dashEndPosiiton);
-            else
+            else 
                 dashCoolDownTimer += Time.deltaTime;
 
             if(dashCoolDownTimer > .2f)
@@ -56,7 +62,8 @@ public class FastButLight : EnemyAI
             }
         }
     }
-
+    
+    //initializes variables for the dash
     void StartTripleDash()
     {
         dashCoolDownTimer = 0;
@@ -68,6 +75,7 @@ public class FastButLight : EnemyAI
         enemyAni.SetTrigger("attack");
     }
 
+    // keeps track of how many dashes have gone and updates enemy position
     int dashCounter = 0;
     bool inBetweenDashes;
     protected override void Dash(Vector3 dashStartPosiiton, Vector3 dashEndPosiiton)

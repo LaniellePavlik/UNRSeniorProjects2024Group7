@@ -1,3 +1,6 @@
+//Script: SniperProjectile.cs
+//Contributor: Liam Francisco
+//Summary: Handles the projectile for the "Sniper" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +13,13 @@ public class SniperProjectile : Projectile
         
     }
 
-    // Update is called once per frame
+    // updates projectile physics
     void Update()
     {
         UpdatePosition();
     }
 
+    // handles when the projectile hits something
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.tag.Equals("Weapon"))

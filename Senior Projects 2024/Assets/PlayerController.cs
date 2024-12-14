@@ -1,3 +1,6 @@
+//Script: PlayerController.cs
+//Contributors: Liam Francisco and Fenn Edmonds
+//Summary: Called by InputMgr to convert inputs to player actions
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

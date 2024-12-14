@@ -1,23 +1,24 @@
+//Script: SlowerWeapon.cs
+//Contributor: Liam Francisco
+//Summary: Handles the weapon for the "Slower" enemy type
 using System.Collections;
 using System.Collections.Generic;
-// using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class SlowerWeapon : Weapon
 {
-
-    bool attacking;
-    Slower entity;
-    public AudioSource attackSound;
+    bool attacking; // determines whether weapon is mid swing
+    Slower entity; // point to enemy entity
+    public AudioSource attackSound; // sound when emeny swings
     // public Animator enemyAni;
 
-    // Start is called before the first frame update
+    //finds the SlowerAI component associated with the weapon so its location can be used in attack calculations
     void Start()
     {
         entity = GetComponentInParent<Slower>();
     }
 
-    // Update is called once per frame
+    // handles whether or not the enemy should be stabbing towards the player
     void Update()
     {
         if (attacking)
@@ -26,6 +27,7 @@ public class SlowerWeapon : Weapon
         }
     }
 
+    //sets up the initial conditions for an attack to take place.
     public override void StartAttack()
     {
         attacking = true;
@@ -33,6 +35,7 @@ public class SlowerWeapon : Weapon
         AudioMgr.Instance.PlaySFX("Sword Slash", attackSound);
     }
 
+    //handles the wind up and thrust animations of the enemy’s attack.
     bool stabbing;
     float timer;
     public float stabTime;
@@ -66,6 +69,7 @@ public class SlowerWeapon : Weapon
         }
     }
 
+    //applies both the damage and the slow effect to the player if they are hit by the weapon.
     bool hitThisStab;
     private void OnTriggerEnter(Collider collider)
     {

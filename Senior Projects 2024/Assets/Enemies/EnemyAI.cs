@@ -1,3 +1,6 @@
+//Script: EnemyAI.cs
+//Contributor: Liam Francisco
+//Summary: Parent class for all enemy AI's
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +9,10 @@ using UnityEngine.UIElements.Experimental;
 
 public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public Entity entity;
-    // Start is called before the first frame update
+    public NavMeshAgent agent; // handles enemy pathfinding
+    public Entity entity; // Entity component
+
+
     void Start()
     {
         
@@ -25,11 +29,13 @@ public class EnemyAI : MonoBehaviour
 
     }
     
+    //Sets where enemy is going
     protected virtual void SetMove(Vector3 position)
     {
         agent.destination = position;
     }
 
+    //Handles enemy dash
     protected bool dashing;
     
     protected Vector3 dashStartPosiiton;
@@ -55,13 +61,14 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
-
+    //gets a random location within radius distance of the enemy.
     protected virtual Vector3 GetRandomPointOnRadius(float radius)
     {
         Vector2 rand = Random.insideUnitCircle;
         return new Vector3(rand.x, 0, rand.y) * radius;
     }
 
+    //gets the closest point from the enemy on the circle specified by the parameters center and radius
     protected virtual Vector3 GetClosestPointInRadius(Vector3 center, float radius)
     {
         Vector2 c = new Vector2 (center.x, center.z);
@@ -73,6 +80,7 @@ public class EnemyAI : MonoBehaviour
         return new Vector3(output2D.x, 0 ,output2D.y);
     }
 
+    //causes the enemy to stop moving for a set amount of time
     protected float moveTime;
     protected float stopTime;
     private float moveTimer = 0;

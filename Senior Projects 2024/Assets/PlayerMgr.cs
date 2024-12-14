@@ -1,3 +1,6 @@
+//Script: PlayerMgr.cs
+//Contributor: Liam Francisco
+//Summary: Handles player aspcets like speed and health
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

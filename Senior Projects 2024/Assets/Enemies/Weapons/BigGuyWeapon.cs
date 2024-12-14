@@ -1,3 +1,6 @@
+//Script: BigGuyWeapon.cs
+//Contributor: Liam Francisco
+//Summary: Handles the weapon for the "BigGuy" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +16,7 @@ public class BigGuyWeapon : Weapon
     }
 
     bool attacking;
-    // Update is called once per frame
+    // handles whether or not the enemy should be swinging towards the player.
     void Update()
     {
         if (attacking)
@@ -22,6 +25,7 @@ public class BigGuyWeapon : Weapon
         }
     }
 
+    //sets up the initial conditions for an attack to take place.
     public override void StartAttack()
     {
         attacking = true;
@@ -30,6 +34,7 @@ public class BigGuyWeapon : Weapon
         playerAni.SetTrigger("attack");
     }
 
+    //uses a Lerp to rotate the weapon GameObject to simulate the enemy swinging a club.
     bool windUp;
     bool swinging;
     float timer;
@@ -65,6 +70,7 @@ public class BigGuyWeapon : Weapon
         }
     }
 
+    //handles the player taking damage and makes sure that the damage is only applied once per swing
     bool hitThisSwing;
     private void OnTriggerEnter(Collider collider)
     {

@@ -1,8 +1,12 @@
+//Script: AOEWeapon.cs
+//Contributor: Liam Francisco
+//Summary: Handles the weapon for the "AOE" enemy type
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+
 
 public class AOEWeapon : Weapon
 {
@@ -22,6 +26,7 @@ public class AOEWeapon : Weapon
         
     }
 
+    //creates the projectile GameObject and sets its velocity based on player position
     public override void StartAttack()
     {
         GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);

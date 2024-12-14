@@ -1,13 +1,16 @@
+//Script: SniperWeapon.cs
+//Contributor: Liam Francisco
+//Summary: Handles the weapon for the "Sniper" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SniperWeapon : Weapon
 {
-    public GameObject projectile;
-    public Transform spawn;
-    public AudioSource attackSound;
-    // Start is called before the first frame update
+    public GameObject projectile; // prefab of the snipe projectile
+    public Transform spawn; // spawn location of projectiles
+    public AudioSource attackSound; // sound made when weapon is shot
+
     void Start()
     {
         
@@ -20,6 +23,7 @@ public class SniperWeapon : Weapon
             StartAttack();
     }
 
+    //spawns projectile and sets dirction
     public override void StartAttack()
     {
         GameObject newProjectile = Instantiate(projectile, spawn.position, Quaternion.identity);

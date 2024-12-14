@@ -1,3 +1,6 @@
+//Script: SlowerWeapon.cs
+//Contributor: Liam Francisco
+//Summary: Handles the weapon for the "FastButLight" enemy type
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +20,7 @@ public class DashWeapon : Weapon
         
     }
 
+    // damages player if hit by dash
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals(damageTag))

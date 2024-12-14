@@ -1,3 +1,6 @@
+//Script: Projectile.cs
+//Contributor: Liam Francisco
+//Summary: Base class for all projectiles
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +26,7 @@ public class Projectile : MonoBehaviour
 
     }
 
+    //handles where the projectiles next location should be based on the direction it’s traveling and what its speed and acceleration are
     protected virtual void UpdatePosition()
     {
         timeAlive += Time.deltaTime;
@@ -35,6 +39,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // deals damage
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.tag.Equals("Weapon"))

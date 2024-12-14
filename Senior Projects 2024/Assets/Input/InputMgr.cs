@@ -1,3 +1,6 @@
+//Script: InputMgr.cs
+//Contributors: Liam Francisco and Fenn Edmonds
+//Summary: Handles all inputs from player
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,18 +22,19 @@ public class InputMgr : MonoBehaviour
     private Scene currentScene;
     private bool canDisable = false;
 
+    //sets up an instance of the InputMgr and creates a new reference to the inputs
     public void Awake()
     {
         inst = this;
         input = new GameControls();
     }
 
-        // Start is called before the first frame update
     void Start()
     {
         
     }
 
+    // turns the inputs on when the game loads the scene.
     private void OnEnable()
     {
         move = input.Movement.Move;
@@ -66,6 +70,7 @@ public class InputMgr : MonoBehaviour
         GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnablePlayerMovement;
     }
 
+    //turns the inputs off when the game loads the scene. Unity’s input system recommends this to avoid errors when loading new scenes
     private void OnDisable()
     {
         move.Disable();
@@ -79,7 +84,7 @@ public class InputMgr : MonoBehaviour
         GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnablePlayerMovement;
     }
 
-    // Update is called once per frame
+    // handles reading values that constantly need to be read, such as mouse position on the screen
     void Update()
     {
         player.MovePlayer(move.ReadValue<Vector2>());
